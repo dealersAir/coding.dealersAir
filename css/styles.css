@@ -2265,18 +2265,22 @@ hr.gray {
   margin-bottom: 45px;
 }
 
+.title span {
+  font-size: 0.57143em;
+}
+
 .title-h2 {
   font-size: 21px;
   margin-bottom: 28px;
 }
 
-.title span {
-  font-size: 0.57143em;
+.title-h2 span {
+  font-size: 0.66667em;
 }
 
 /*Text*/
 .txt {
-  font-size: 0.875rem;
+  font-size: 14px;
   line-height: 1.5;
 }
 

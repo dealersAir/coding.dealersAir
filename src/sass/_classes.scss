@@ -24,18 +24,21 @@ hr.gray{
 	font-size: 28px;
 	font-weight: 500;
 	margin-bottom: 45px;
+	span{
+		font-size: em(16,28);
+	}
 	&-h2{
 		font-size: 21px;
 		margin-bottom: 28px;
-	}
-	span{
-		font-size: em(16,28);
+		span{
+			font-size: em(14,21);
+		}
 	}
 }
 
 /*Text*/
 .txt{
-	font-size: rem(14);
+	font-size: 14px;
 	line-height: 1.5;
 	p{
 		margin-bottom: 25px;
