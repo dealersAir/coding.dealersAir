@@ -1,0 +1,149 @@
+.bubble{
+	display: block;
+	position: absolute;
+	background: #FFF;
+	box-shadow: 2px 1px 21px rgba(0,0,0,.21);
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .5s;
+	&.toggled{
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+hr.gray{
+	border: none;
+	border-bottom: 1px solid $gy;
+	margin-top: 45px;
+	margin-bottom: 45px;
+}
+
+/*Title*/
+.title{
+	font-size: 28px;
+	font-weight: 500;
+	margin-bottom: 45px;
+	&-h2{
+		font-size: 21px;
+		margin-bottom: 28px;
+	}
+	span{
+		font-size: em(16,28);
+	}
+}
+
+/*Text*/
+.txt{
+	font-size: rem(14);
+	line-height: 1.5;
+	p{
+		margin-bottom: 25px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+}
+
+.fw-400{
+	font-weight: 400;
+}
+
+.ta-c{
+	text-align: center;
+}
+.ta-r{
+	text-align: right;
+}
+
+.pos-r{
+	position: relative;
+}
+
+.c-gray{
+	color: $gy;
+}
+.c-red{
+	color: $rd;
+}
+.c-yellow{
+	color: $yw;
+}
+.c-green{
+	color: $gn;
+}
+
+.mb-35{
+	margin-bottom: 35px;
+}
+.mb-15{
+	margin-bottom: 15px;
+}
+.mb-5{
+	margin-bottom: 5px;
+}
+.m-0{
+	margin: 0;
+}
+
+@media(min-width: 1201px){
+	.vw1201{
+		&-hide{
+			display: none;
+		}
+	}
+}
+
+@media(max-width: 1200px){
+	.vw1200{
+		&-hide{
+			display: none;
+		}
+	}
+}
+
+@media(min-width: 1001px){
+	.vw1001{
+		&-hide{
+			display: none;
+		}
+	}
+}
+
+@media(max-width: 1000px){
+	.vw1000{
+		&-hide{
+			display: none;
+		}
+		&-pad-x-0{
+			padding-left: 0;
+			padding-right: 0;
+		}
+		&-pad-y-0{
+			padding-top: 0;
+			padding-bottom: 0;
+		}
+		&-m-0{
+			margin: 0;
+		}
+		&-mb-35{
+			margin-bottom: 35px;
+		}
+	}
+}
+
+@media(min-width: 701px){
+	.vw701{
+		&-hide{
+			display: none;
+		}
+	}
+}
+
+@media(max-width: 700px){
+	.vw700{
+		&-hide{
+			display: none;
+		}
+	}
+}

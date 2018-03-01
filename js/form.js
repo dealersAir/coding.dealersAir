@@ -167,6 +167,8 @@ var Select = {
 			setTextareaHeight(_srcInput);
 		}
 
+		_f.addClass('form__select_changed')
+
 		Form.select(_input);
 
 		return false;
@@ -520,7 +522,7 @@ var Form = {
 				_.input = _form.find('.form__text-input[data-pass-compare="'+ gr +'"]');
 				if (!_.pass()) {
 					if (_.input.eq(0).val() != _.input.eq(1).val()) {
-						_.error(true);
+						_.error(true, true, true);
 					} else {
 						_.error(false);
 					}
@@ -550,6 +552,14 @@ var Form = {
 			Button.prop('disabled', true).addClass('form__button_loading');
 		}
 	},
+	clearForm: function(f, st) {
+		var Form = $(f);
+		if (st) {
+			Form.find('.form__text-input, .form__textarea').val('');
+			Form.find('.overlabel-apply').attr('style','');
+			Form.find('.form__textarea-mirror').html('');
+		}
+	},
 	submit: function(el, form) {
 		var _ = this;
 		$('body').on('change', '.form__file-input', function(e) {
@@ -563,8 +573,9 @@ var Form = {
 			if (_.validate(f)) {
 				_.submitButton(f, false);
 				if (form !== undefined) {
-					form(f, function(ret) {
-						_.submitButton(f, ret);
+					form(f, function(unlockBtn, clearForm) {
+						_.submitButton(f, unlockBtn);
+						_.clearForm(f, clearForm);
 					});
 				} else {
 					return true;
@@ -658,52 +669,16 @@ $(document).ready(function() {
 		}
 	});
 
-	//textarea with variable height
-	$('.form__textarea_var-h').each(function() {
-		$(this).parent().prepend('<div class="form__textarea-shape"></div>');
-	});
-
-	setTextareaHeight = function (_$, e) {
+	setTextareaHeight = function (_$) {
 		var val = _$.val(),
-		Shape = _$.parent().find('.form__textarea-shape');
-		if (e.keyCode == 13) {
-			val = val +'<br>';
-		}
-		Shape.html(val);
+		Shape = _$.parent().find('.form__textarea-mirror');
+		val = val.replace(/\n/g, '<br>');
+		Shape.html(val +'&nbsp;');
 	}
 
-	$('body').on('keyup', '.form__textarea_var-h', function(e) {
-		setTextareaHeight($(this), e);
+	$('body').on('input', '.form__textarea_var-h', function() {
+		setTextareaHeight($(this));
 	});
-
-	Form.submit('#form1', function(form, callback) {
-		var _f = $(form);
-		Popup.message('#message-popup', 'Форма отправлена', function() {
-			callback(true);
-		});
-		/*$.ajax({
-			url: _f.attr('action'),
-			type:"POST",
-			dataType:"html",
-			data: _f.serialize(), //new FormData(form),
-			success: function(response){
-				Popup.message('#message-popup', response);
-			},
-			error: function() {
-				alert('Send Error');
-			}
-		});*/
-		
-	});
-
-	Form.submit('#form2', function(form, callback) {
-		var _f = $(form);
-		Popup.message('#message-popup', 'Форма отправлена', function() {
-			callback(true);
-		});
-	});
-
-	Form.submit('#form3');
 
 });
 

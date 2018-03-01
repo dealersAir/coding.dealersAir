@@ -16,15 +16,6 @@
 	}
 }
 
-@mixin spr($bg-position-x: 0, $bg-position-y: 0){
-	background-image: url("../../images/sprite@2x.png");
-	background-size: 480px auto;
-	background-repeat: no-repeat;
-	@if $bg-position-x != 0 OR $bg-position-y != 0 {
-		background-position: ($bg-position-x / 2) ($bg-position-y / 2);
-	}
-}
-
 //after-before
 @mixin ab(){
 	display: block;
@@ -73,8 +64,10 @@ $base-font-size: 16;
 }
 
 //Colors
-$gray: #797979;
-$l-gray: #dddddd;
-$red: #ff0000;
-$green: #00ff00;
-$blue: #0000ff;
+$bk: #212121;
+$gy: #aaaaaa;
+$lgy: #dddddd;
+$rd: #ff0000;
+$gn: #00ff00;
+$be: #0000ff;
+$yw: #FFFF00;

@@ -22,12 +22,13 @@
 			</div>
 		</div>
 		<div class="col-9">
-			<div id="header-mob-menu" class="header__nav-wrap">
+			
+			<!--<div id="header-mob-menu" class="header__nav-wrap">
 				<nav class="header__nav">
 					<?php echo $get->getMenu(array(
-							'services' => 'Услуги',
+						'services' => 'Услуги',
 						)); ?>
-					<!--ul class="menu">
+					<ul class="menu">
 						<li class="menu__item menu__item_has-children">
 							<a href="index.html" class="menu__a">Home</a>
 							<button class="menu__arr"></button>
@@ -64,11 +65,27 @@
 						<li class="menu__item">
 							<a href="#popup-2" class="js-open-popup menu__a">open popup</a>
 						</li>
-					</ul-->
+					</ul>
 				</nav>
-			</div>
+				<div class="header__user user middle">
+					<span class="user__name">
+						<a href="#" class="js-toggle user__link" data-target-elements="#user-menu,.user__thumb a">Lufter</a><br>
+						<a href="#" class="user__link-logout">Выйти</a>
+					</span>
+					<span class="user__thumb">
+						<a href="#" class="js-toggle" data-target-elements="#user-menu,.user__link"><img src="../../images/avatar.png" alt="avatar" class="cover-img"></a>
+					</span>
+
+					<div id="user-menu" class="user__bubble bubble">
+						
+					</div>
+
+				</div>
+			</div>-->
+			
 		</div>
-		<button class="js-toggle toggle header__toggle" data-target-id="header-mob-menu" data-target-class="header"><span></span><span></span><span></span><span></span></button>
+
+		<button class="js-toggle toggle header__toggle" data-target-elements="#header-mob-menu,.header"><span></span><span></span><span></span><span></span></button>
 	</div>
 </header>
 <!--/HEADER-->
