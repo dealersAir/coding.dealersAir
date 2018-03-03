@@ -27,6 +27,20 @@
 
 .form{
 	font-size: 1rem;
+
+	.row{
+		padding-left: 8px;
+		padding-right: 8px;
+		& > div[class*="col"]{
+			padding-left: 7px;
+			padding-right: 7px;
+		}
+	}
+	
+	&_v1{
+		max-width: 700px;
+		margin: auto;
+	}
 	
 	.overlabel,
 	.overlabel-apply{
@@ -50,18 +64,20 @@
 		display: block;
 		width: 100%;
 		border: 1px solid $gy;
+		background: none;
 		transition: .5s;
 		&:hover,
 		&:focus{
+			border-color: #FFF;
 			box-shadow: 2px 1px 21px rgba(0,0,0,.21);
 		}
 		&:focus{
-			border-color: $bk;
+			border-color: #FFF;
 		}
 	}
 
 	&__textarea{
-		height: 70px;
+		height: 80px;
 		resize: none;
 		overflow: auto;
 		line-height: 1.3;

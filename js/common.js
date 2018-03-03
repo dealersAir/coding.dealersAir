@@ -41,23 +41,25 @@ $(document).ready(function(){
 	});
 
 	//forms
-	Form.submit('#form1', function(form, callback) {
+	Form.submit('#request-form', function(form, callback) {
 		var $f = $(form);
-		Popup.message('#message-popup', 'Форма отправлена', function() {
-			callback(true, true);
-		});
-		/*$.ajax({
+		
+		$.ajax({
 			url: $f.attr('action'),
 			type:"POST",
 			dataType:"html",
-			data: $f.serialize(), //new FormData(form),
-			success: function(response){
-				Popup.message('#message-popup', response);
+			data: $f.serialize(),
+			success: function(response) {
+				if (response == 'true') {
+					Popup.message('#message-popup', 'Заявка отправлена', function() {
+						callback(true, true);
+					});
+				}
 			},
 			error: function() {
 				alert('Send Error');
 			}
-		});*/
+		});
 		
 	});
 
