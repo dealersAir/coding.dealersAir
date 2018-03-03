@@ -59,8 +59,8 @@ require $_SERVER['DOCUMENT_ROOT'].'/templates/header.php';
 
 <div class="container bg-2b">
 	<div class="wrap">
-		<h1 class="title-h2 c-yellow pad ta-c mb-15">Оставьте заявку</h1>
-		<div class="txt ta-c mb-35">Отправьте нам ссылки на макеты и техническое задание,<br> мы рассчитаем стоимость разработки и свяжемся с вами.</div>
+		<h1 class="title-h2 c-yellow pad ta-c mb-15">Оставьте заявку на веб-разработку</h1>
+		<div class="txt ta-c mb-35">Отправьте нам ссылки на макеты и на техническое задание,<br> предварительно загрузив их на гугл диск, яндекс диск или другой файлообменник.<br> Мы рассчитаем стоимость разработки, составим смету и отправим ее вам на e-mail.</div>
 		<form id="request-form" action="/functions/send-mail.php" method="POST" autocomplete="off" class="form form_v1">
 			<div class="row">
 				<div class="col-6">

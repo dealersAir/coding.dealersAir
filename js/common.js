@@ -50,7 +50,7 @@ $(document).ready(function(){
 			dataType:"html",
 			data: $f.serialize(),
 			success: function(response) {
-				if (response == 'true') {
+				if (response == 'send') {
 					Popup.message('#message-popup', 'Заявка отправлена', function() {
 						callback(true, true);
 					});
