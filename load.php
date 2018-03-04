@@ -9,10 +9,7 @@ if ((float)phpversion() < 5.3) {
 }
 
 function loadClasses($class_name) {
-    if (file_exists($_SERVER['DOCUMENT_ROOT'].'/classes/'.$class_name.'.php')) {
-        require_once $_SERVER['DOCUMENT_ROOT'].'/classes/'.$class_name.'.php';
-    }
-    //echo $class_name;
+    require_once $_SERVER['DOCUMENT_ROOT'].'/classes/'.strtolower($class_name).'.php';
 }
 
 spl_autoload_register('loadClasses');

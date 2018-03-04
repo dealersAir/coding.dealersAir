@@ -47,17 +47,17 @@ $(document).ready(function(){
 		$.ajax({
 			url: $f.attr('action'),
 			type:"POST",
-			dataType:"html",
+			dataType:"json",
 			data: $f.serialize(),
 			success: function(response) {
-				if (response == 'send') {
+				if (response.status == 'sent') {
 					Popup.message('#message-popup', 'Заявка отправлена', function() {
 						callback(true, true);
 					});
 				}
 			},
 			error: function() {
-				alert('Send Error');
+				alert('Error');
 			}
 		});
 		

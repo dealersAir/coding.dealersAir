@@ -154,7 +154,7 @@ a:hover {
   overflow: hidden;
   min-height: 100%;
   position: relative;
-  padding: 70px 0;
+  padding: 55px 0;
 }
 
 .wrapper_fsscroll {
@@ -641,14 +641,6 @@ a:hover {
   top: 0;
   left: 0;
   z-index: 8;
-  background: #212121;
-  -webkit-transition: .21s;
-  -o-transition: .21s;
-  -moz-transition: .21s;
-  transition: .21s;
-}
-
-.header_fixed, .header.toggled {
   background: #ffffff;
   -webkit-box-shadow: 0 1px 21px rgba(0, 0, 0, 0.21);
      -moz-box-shadow: 0 1px 21px rgba(0, 0, 0, 0.21);
@@ -656,13 +648,13 @@ a:hover {
 }
 
 .header__wrap {
-  height: 70px;
+  height: 55px;
 }
 
 .header__logo {
-  height: 70px;
-  padding-top: 14px;
-  padding-bottom: 14px;
+  height: 55px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .header__nav {
@@ -744,17 +736,18 @@ a:hover {
 }
 
 .menu__a {
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0;
   text-decoration: none;
   -webkit-transition: .5s;
   -o-transition: .5s;
   -moz-transition: .5s;
   transition: .5s;
+  color: #212121;
 }
 
 .menu__a:hover {
-  color: #ff0000;
+  color: #aaaaaa;
 }
 
 .menu__arr {
@@ -1102,7 +1095,7 @@ a:hover {
 }
 
 .form__textarea {
-  height: 80px;
+  height: 120px;
   resize: none;
   overflow: auto;
   line-height: 1.3;

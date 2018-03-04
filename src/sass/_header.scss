@@ -5,20 +5,19 @@
 	top: 0;
 	left: 0;
 	z-index: 8;
-	background: $bk;
-	transition: .21s;
+	background: #ffffff;
+	box-shadow: 0 1px 21px rgba(0,0,0,.21);
 	&_fixed,
 	&.toggled{
-		background: #ffffff;
-		box-shadow: 0 1px 21px rgba(0,0,0,.21);
+		
 	}
 	&__wrap{
-		height: 70px;
+		height: 55px;
 	}
 	&__logo{
-		height: 70px;
-		padding-top: 14px;
-		padding-bottom: 14px;
+		height: 55px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	&__nav{
 		float: left;
@@ -83,12 +82,13 @@
 		}
 	}
 	&__a{
-		font-size: 18px;
-		font-weight: 500;
+		font-size: 15px;
+		letter-spacing: 0;
 		text-decoration: none;
 		transition: .5s;
+		color: $bk;
 		&:hover{
-			color: $rd;
+			color: $gy;
 		}
 	}
 	&__arr{
