@@ -15,8 +15,9 @@ svgSprite = require('gulp-svg-sprite');
 //modules
 var modulesOn = [
 'header',
-'header/user',
+//'header/user',
 'header/menu',
+'header/lang',
 'fsscroll',
 'toggle',
 'flex-image',

@@ -9,14 +9,14 @@
 				<nav class="header__nav">
 					
 					<!--Menu/-->
-					@@include('menu/menu.html', {"menu_item_current": "@@menu_item_current"})
+					@@include('menu/menu.html', {"menu_item_current": "@@menu_item_current", "prefix":"@@prefix"})
 					<!--/Menu-->
 
 				</nav>
 
-				<!--User/-->
-				@@include('user/user.html')
-				<!--/User-->
+				<!--Lang/-->
+				@@include('lang/lang.html', {"prefix":"@@prefix"})
+				<!--/Lang-->
 
 				<button class="js-close-menu menu-close-btn"></button>
 			</div>
