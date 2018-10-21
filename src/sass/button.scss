@@ -7,13 +7,13 @@
 %btn{
 	display: inline-block;
 	font-size: 14px;
-	font-weight: 500;
 	letter-spacing: 1px;
 	color: #FFF;
 	padding: 15px 28px 14px;
 	text-align: center;
 	text-decoration: none;
 	border: none;
+	border-radius: 3px;
 	background: $bk;
 	user-select: none;
 	position: relative;
@@ -30,6 +30,13 @@
 //default btn
 .btn{
 	@extend %btn;
+	&_be{
+		background: $be;
+		&:hover{
+			background: $be2;
+		}
+	}
+	
 }
 
 //arrow btn
@@ -58,5 +65,21 @@
 		height: 32px;
 		left: 6px;
 		margin-top: -16px;
+	}
+}
+
+//plus btn
+.github-btn{
+	@extend %btn;
+	padding-left: 55px;
+	&:after{
+		@extend %btn-icon;
+		width: 32px;
+		height: 32px;
+		left: 6px;
+		margin-top: -16px;
+	}
+	&:hover{
+		background: $be2;
 	}
 }

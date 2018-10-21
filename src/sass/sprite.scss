@@ -16,6 +16,11 @@
 	@include bgs(512);
 }
 
+.github-btn:after{
+	@extend %svg-github;
+	@include bgs(516);
+}
+
 .form__btn_search:before{
 	@extend %svg-search;
 	@include bgs(512);

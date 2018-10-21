@@ -190,7 +190,11 @@ h1, h2 {
 }
 
 h1 {
-  font-size: 25px;
+  font-size: 26px;
+}
+
+h2 {
+  font-size: 21px;
 }
 
 .row {
@@ -569,27 +573,35 @@ h1 {
   }
 }
 
-.btn, .arrow-btn, .plus-btn {
+.btn, .arrow-btn, .plus-btn, .github-btn {
   display: inline-block;
   font-size: 14px;
-  font-weight: 500;
   letter-spacing: 1px;
   color: #FFF;
   padding: 15px 28px 14px;
   text-align: center;
   text-decoration: none;
   border: none;
+  border-radius: 3px;
   background: #212121;
   user-select: none;
   position: relative;
   transition: .5s;
 }
 
-.arrow-btn:after, .plus-btn:after {
+.arrow-btn:after, .plus-btn:after, .github-btn:after {
   display: block;
   content: "";
   position: absolute;
   top: 50%;
+}
+
+.btn_be {
+  background: #0000ff;
+}
+
+.btn_be:hover {
+  background: #6699cc;
 }
 
 .arrow-btn {
@@ -613,6 +625,21 @@ h1 {
   height: 32px;
   left: 6px;
   margin-top: -16px;
+}
+
+.github-btn {
+  padding-left: 55px;
+}
+
+.github-btn:after {
+  width: 32px;
+  height: 32px;
+  left: 6px;
+  margin-top: -16px;
+}
+
+.github-btn:hover {
+  background: #6699cc;
 }
 
 .menu-close-btn:after, .menu-close-btn:before {
@@ -2370,88 +2397,122 @@ select {
   border-bottom-color: transparent;
 }
 
-.accord__button:after, .arrow-btn:after, .custom-checkbox__input:checked + .custom-checkbox__label:before, .fb-btn, .ok-btn, .plus-btn:after, .form__btn_search:before, .tw-btn, .vk-btn, .video__btn-play {
+/*box*/
+.box {
+  background: #FFF;
+  padding: 15px;
+  border-radius: 3px;
+  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.21);
+}
+
+.box__tit {
+  color: #6699cc;
+}
+
+.box__p {
+  font-size: 15px;
+  line-height: 1.33333;
+  margin-bottom: 25px;
+}
+
+.box__p p {
+  margin-top: 20px;
+}
+
+.box__p p:first-child {
+  margin-top: 0 !important;
+}
+
+.accord__button:after, .arrow-btn:after, .custom-checkbox__input:checked + .custom-checkbox__label:before, .fb-btn, .github-btn:after, .ok-btn, .plus-btn:after, .form__btn_search:before, .tw-btn, .vk-btn, .video__btn-play {
   background: url("../images/sprite.svg") no-repeat;
 }
 
 .accord__button:after {
-  background-position: 0 50%;
+  background-position: 0 35.56149732620321%;
 }
 
 .arrow-btn:after {
-  background-position: 32.758620689655174% 50%;
+  background-position: 75.44303797468355% 35.56149732620321%;
 }
 
 .custom-checkbox__input:checked + .custom-checkbox__label:before {
-  background-position: 100% 0;
-}
-
-.fb-btn {
-  background-position: 73.39901477832512% 0;
-}
-
-.ok-btn {
-  background-position: 68.03652968036529% 50%;
-}
-
-.plus-btn:after {
   background-position: 0 100%;
 }
 
-.form__btn_search:before {
-  background-position: 34.1025641025641% 100%;
-}
-
-.tw-btn {
-  background-position: 68.2051282051282% 100%;
-}
-
-.vk-btn {
-  background-position: 0 0;
-}
-
-.video__btn-play {
-  background-position: 39.839572192513366% 0;
-}
-
-.accord__button:after {
-  background-size: 408.59375% auto;
-}
-
-.arrow-btn:after {
-  background-size: 466.96429% auto;
-}
-
-.plus-btn:after {
-  background-size: 408.59375% auto;
-}
-
-.form__btn_search:before {
-  background-size: 408.59375% auto;
-}
-
-.custom-checkbox__input:checked + .custom-checkbox__label:before {
-  background-size: 484.25926% auto;
-}
-
-.vk-btn {
-  background-size: 363.19444% auto;
-}
-
 .fb-btn {
-  background-size: 466.96429% auto;
+  background-position: 33.67088607594937% 35.56149732620321%;
 }
 
-.tw-btn {
-  background-size: 408.59375% auto;
+.github-btn:after {
+  background-position: 77.80678851174935% 0;
 }
 
 .ok-btn {
-  background-size: 653.75% auto;
+  background-position: 100% 0;
+}
+
+.plus-btn:after {
+  background-position: 0 71.12299465240642%;
+}
+
+.form__btn_search:before {
+  background-position: 35.09234828496042% 71.12299465240642%;
+}
+
+.tw-btn {
+  background-position: 70.18469656992085% 71.12299465240642%;
+}
+
+.vk-btn {
+  background-position: 41.04683195592286% 0;
 }
 
 .video__btn-play {
-  background-size: 363.19444% auto;
+  background-position: 0 0;
+}
+
+.accord__button:after {
+  background-size: 400% auto;
+}
+
+.arrow-btn:after {
+  background-size: 457.14286% auto;
+}
+
+.plus-btn:after {
+  background-size: 400% auto;
+}
+
+.github-btn:after {
+  background-size: 396.89922% auto;
+}
+
+.form__btn_search:before {
+  background-size: 400% auto;
+}
+
+.custom-checkbox__input:checked + .custom-checkbox__label:before {
+  background-size: 474.07407% auto;
+}
+
+.vk-btn {
+  background-size: 355.55556% auto;
+}
+
+.fb-btn {
+  background-size: 457.14286% auto;
+}
+
+.tw-btn {
+  background-size: 400% auto;
+}
+
+.ok-btn {
+  background-size: 640% auto;
+}
+
+.video__btn-play {
+  background-size: 355.55556% auto;
 }
 
 
