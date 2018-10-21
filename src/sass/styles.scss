@@ -1,49 +1,71 @@
-@import "helpers";
+@import "variables";
+@import "functions";
+@import "extends";
+@import "mixins";
 
-/*===RESET===*/
-@import "reset";
+/*full-page*/
+.full-page{
+	@extend %fwh;
+	padding-top: 100px;
+	overflow: hidden;
+	&_middle{
+		display: flex;
+		align-items: center;
+		&__inner{
+			width: 100%;
+		}
+	}
+}
 
-/*===FONTS===*/
-@import "fonts";
+.main{
+	padding-bottom: 50px;
+	background: url("../images/dealersair.svg") no-repeat 50% 50%, url("../images/sky.jpg") no-repeat 50% 50%;
+	background-size: 90% auto, cover;
+	background-attachment: fixed, fixed;
+}
 
-/*===COMMON===*/
-@import "common";
+/*section*/
+.section{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	&-outer{
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	&-inner{
+		padding-top: 30px;
+		padding-bottom: 30px;
+	}
+}
 
-/*===GRID===*/
-@import "grid";
+/*list*/
+.list{
+	list-style: none;
+	li{
+		line-height: (24/16);
+		padding-left: 30px;
+		margin: em(30) 0;
+		position: relative;
+		&:before{
+			@extend %ab;
+			width: 9px;
+			height: 9px;
+			position: absolute;
+			left: 3px;
+			top: 6px;
+			background: $rd;
+		}
+	}	
+}
 
-/*===HEADER===*/
-@import "header";
-
-/*===BLOCK===*/
-@import "block";
-
-/*===IMAGES===*/
-@import "images";
-
-/*===FORM===*/
-@import "form";
-
-/*===SLIDER===*/
-@import "slider";
-
-/*===SCROLL===*/
-@import "scroll";
-
-/*===POPUP===*/
-@import "popup";
-
-/*===ACCORD===*/
-@import "accord";
-
-/*===MORE===*/
-@import "more";
-
-/*===BUTTONs===*/
-@import "buttons";
-
-/*===FOOTER===*/
-@import "footer";
-
-/*===CLASSES===*/
-@import "classes";
+/*link*/
+.link{
+	text-decoration: none;
+	border-bottom: 2px solid $gn;
+	transition: .5s;
+	&:hover{
+		border-bottom-color: transparent;
+	}
+}
