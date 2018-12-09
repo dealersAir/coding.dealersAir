@@ -234,6 +234,8 @@ document.addEventListener('DOMContentLoaded', function() {
 		
 		return result[1];
 	}
+
+	
 	
 	
 	// submit form
