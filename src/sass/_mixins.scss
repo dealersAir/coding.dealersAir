@@ -17,8 +17,13 @@
 	}
 }
 
-//gulp svg sprite bg size
-$sprite-width: 2048;
-@mixin bgs($icon-svg-w: 1) {
-	background-size: ($sprite-width / $icon-svg-w) * 100% auto;
+//first child
+@mixin fch($m: default) {
+	&:first-child{
+		@if $m == t {
+			margin-top: 0 !important;
+		} @else if $m == l {
+			margin-left: 0 !important;
+		}
+	}
 }

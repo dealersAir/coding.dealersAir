@@ -2,9 +2,19 @@
 	background: url("../images/sprite.svg") no-repeat;
 }
 
+%svg-angle-down {
+	@extend %svg-common;
+	background-position: 25.26997840172786% 50%;
+}
+
+%svg-angle-down-dims {
+	width: 340px;
+	height: 532px;
+}
+
 %svg-arrow-alt-circle-down {
 	@extend %svg-common;
-	background-position: 0 35.56149732620321%;
+	background-position: 31.08433734939759% 100%;
 }
 
 %svg-arrow-alt-circle-down-dims {
@@ -14,7 +24,7 @@
 
 %svg-arrow-right {
 	@extend %svg-common;
-	background-position: 75.44303797468355% 35.56149732620321%;
+	background-position: 0 50%;
 }
 
 %svg-arrow-right-dims {
@@ -24,7 +34,7 @@
 
 %svg-check {
 	@extend %svg-common;
-	background-position: 0 100%;
+	background-position: 67.72727272727273% 45.70446735395189%;
 }
 
 %svg-check-dims {
@@ -34,7 +44,7 @@
 
 %svg-facebook {
 	@extend %svg-common;
-	background-position: 33.67088607594937% 35.56149732620321%;
+	background-position: 69.1415313225058% 0;
 }
 
 %svg-facebook-dims {
@@ -44,7 +54,7 @@
 
 %svg-github {
 	@extend %svg-common;
-	background-position: 77.80678851174935% 0;
+	background-position: 0 100%;
 }
 
 %svg-github-dims {
@@ -54,7 +64,7 @@
 
 %svg-odnoklassniki {
 	@extend %svg-common;
-	background-position: 100% 0;
+	background-position: 89.63282937365011% 100%;
 }
 
 %svg-odnoklassniki-dims {
@@ -64,7 +74,7 @@
 
 %svg-plus-circle {
 	@extend %svg-common;
-	background-position: 0 71.12299465240642%;
+	background-position: 63.13253012048193% 100%;
 }
 
 %svg-plus-circle-dims {
@@ -74,7 +84,7 @@
 
 %svg-search {
 	@extend %svg-common;
-	background-position: 35.09234828496042% 71.12299465240642%;
+	background-position: 100% 0;
 }
 
 %svg-search-dims {
@@ -84,7 +94,7 @@
 
 %svg-twitter {
 	@extend %svg-common;
-	background-position: 70.18469656992085% 71.12299465240642%;
+	background-position: 100% 50%;
 }
 
 %svg-twitter-dims {
@@ -94,7 +104,7 @@
 
 %svg-vk {
 	@extend %svg-common;
-	background-position: 41.04683195592286% 0;
+	background-position: 37.34335839598997% 0;
 }
 
 %svg-vk-dims {

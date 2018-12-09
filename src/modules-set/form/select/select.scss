@@ -6,19 +6,20 @@
 .custom-select{
 	position: relative;
 	&__button{
-		display: inline-block;
+		display: inline-flex;
+		align-items: center;
+		justify-content: flex-start;
 		width: 100%;
-		min-height: 40px;
-		padding: 10px 35px 10px 15px;
+		height: 44px;
+		padding: 0 43px 0 15px;
 		border: 1px solid $gy;
+		text-align: left;
 		position: relative;
 		z-index: 3;
-		font-weight: 300;
-		text-align: left;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
-		background: none;
+		background: #ffffff;
 		-webkit-appearance: none;
 		transition: .5s;
 		&:hover,
@@ -42,19 +43,18 @@
 			top: 50%;
 			margin-top: -2px;
 		}
-		.field-error &{
-			border: 1px solid $rd;
-			color: $rd;
-		}
 	}
 	&__arr{
 		display: block;
 		width: 40px;
-		height: 40px;
+		height: 44px;
 		position: absolute;
 		right: 0;
 		top: 0;
 		z-index: 3;
+		border: none;
+		border: 1px solid transparent;
+		background: none;
 		&:after{
 			@extend %ab;
 			width: 0;
@@ -67,7 +67,7 @@
 			margin-top: -2px;
 		}
 		& ~ .custom-select__input{
-			padding-right: 40px;
+			padding-right: 43px;
 		}
 	}
 	&__options{
@@ -76,14 +76,14 @@
 		left: 0;
 		top: 100%;
 		width: 100%;
+		height: 0;
 		max-height: 222px;
-		overflow: auto;
+		overflow: hidden;
 		z-index: 5;
 		border: 1px solid #c3c3c3;
 		border-top: none;
 		background: #F0F1F2;
 		visibility: hidden;
-		opacity: 0;
 		transition: .5s;
 		li{
 			border-top: 1px solid #c3c3c3;
@@ -102,6 +102,9 @@
 					background: #c31d1d;
 				}
 			}
+		}
+		&.ovfauto{
+			overflow: auto;
 		}
 	}
 	&__val{
@@ -133,7 +136,6 @@
 		}
 		.custom-select__options{
 			visibility: visible;
-			opacity: 1;
 		}
 	}
 }

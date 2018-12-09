@@ -5,7 +5,6 @@
 
 .custom-radio{
 	position: relative;
-	margin-bottom: 14px;
 	&__input{
 		position: absolute;
 		left: -9999px;
@@ -37,7 +36,7 @@
 			height: 20px;
 			border-radius: 50%;
 			border: 1px solid $gy;
-			background: $lgy;
+			background: $gy;
 			transition: box-shadow .5s;
 			.form__radio-group_error &{
 				border-color: $rd;

@@ -13,9 +13,6 @@
 		background: #FFF;
 		box-shadow: 0 1px 11px rgba(0,0,0,.21);
 	}
-	&__row{
-		max-width: none;
-	}
 	&__logo{
 		display: inline-block;
 		width: 100%;
@@ -28,13 +25,13 @@
 	}
 	&__nav{
 		float: left;
+		
 		&-wrap{
 			float: right;
 		}
 	}
 	@media(max-width: 1000px){
 		height: 65px;
-		
 		&__nav{
 			float: none;
 			padding: 20px 0;
@@ -56,7 +53,6 @@
 				}
 			}
 		}
-
 		&__user{
 			float: none;
 			margin: 0;

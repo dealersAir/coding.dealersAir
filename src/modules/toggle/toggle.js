@@ -1,17 +1,8 @@
 /*
-Toggle.init(Str button selector[, Str toggle class, (default - 'toggled') );
+Toggle.init(Str toggleSelector[, Str toggledClass (default - 'toggled')]);
 
-Toggle.role = function() {
-	return {
-		[data-role]: {
-			on: function() {
-				
-			},
-			off: function() {
-					
-			}
-		},
-	};
+Toggle.onChange = function(toggleElem, state) {
+	// code...
 }
 */
 
@@ -22,72 +13,82 @@ Toggle.role = function() {
 
 	Toggle = {
 		toggledClass: 'toggled',
-		role: null,
+		onChange: null,
 
-		toggle: function(elem) {
-			var targetElements = document.querySelectorAll(elem.getAttribute('data-target-elements')),
-			role = elem.getAttribute('data-role');
+		target: function(toggleElem, state) {
+			var targetElements = document.querySelectorAll(toggleElem.getAttribute('data-target-elements'));
 
 			if (!targetElements.length) {
 				return;
 			}
 
-			if (elem.classList.contains(this.toggledClass)) {
-				for (var i = 0; i < targetElements.length; i++) {
-					targetElements[i].classList.remove(this.toggledClass);
-				}
-
-				elem.classList.remove(this.toggledClass);
-
-				if (role && this.role) {
-					this.role()[role].off();
-				}
-
-				if (elem.hasAttribute('data-first-text')) {
-					elem.innerHTML = elem.getAttribute('data-first-text');
-				}
-			} else {
+			if (state) {
 				for (var i = 0; i < targetElements.length; i++) {
 					targetElements[i].classList.add(this.toggledClass);
 				}
 
-				elem.classList.add(this.toggledClass);
-
-				if (role && this.role) {
-					this.role()[role].on();
-				}
-
-				if (elem.hasAttribute('data-second-text')) {
-					elem.setAttribute('data-first-text', elem.innerHTML);
-
-					elem.innerHTML = elem.getAttribute('data-second-text');
-				}
-
-				if (elem.hasAttribute('data-dependence-target-elements')) {
-					var dependenceTargetElements = document.querySelectorAll(elem.getAttribute('data-dependence-target-elements'));
+				//dependence elements
+				if (toggleElem.hasAttribute('data-dependence-target-elements')) {
+					var dependenceTargetElements = document.querySelectorAll(toggleElem.getAttribute('data-dependence-target-elements'));
 
 					for (var i = 0; i < dependenceTargetElements.length; i++) {
 						dependenceTargetElements[i].classList.remove(this.toggledClass);
 					}
 				}
+			} else {
+				for (var i = 0; i < targetElements.length; i++) {
+					targetElements[i].classList.remove(this.toggledClass);
+				}
 			}
 		},
 
-		init: function(elementStr, toggledClass) {
+		toggle: function(toggleElem) {
+			var state;
+
+			if (toggleElem.classList.contains(this.toggledClass)) {
+				toggleElem.classList.remove(this.toggledClass);
+
+				state = false;
+
+				if (toggleElem.hasAttribute('data-first-text')) {
+					toggleElem.innerHTML = toggleElem.getAttribute('data-first-text');
+				}
+			} else {
+				toggleElem.classList.add(this.toggledClass);
+
+				state = true;
+
+				if (toggleElem.hasAttribute('data-second-text')) {
+					toggleElem.setAttribute('data-first-text', toggleElem.innerHTML);
+
+					toggleElem.innerHTML = toggleElem.getAttribute('data-second-text');
+				}
+			}
+
+			//target
+			if (toggleElem.hasAttribute('data-target-elements')) {
+				this.target(toggleElem, state);
+			}
+
+			//call onChange
+			if (this.onChange) {
+				this.onChange(toggleElem, state);
+			}
+		},
+
+		init: function(toggleSelector, toggledClass) {
 			if (toggledClass) {
 				this.toggledClass = toggledClass;
 			}
 			
 			document.addEventListener('click', (e) => {
-				var elem = e.target.closest(elementStr);
+				var toggleElem = e.target.closest(toggleSelector);
 
-				if (!elem) {
-					return;
+				if (toggleElem) {
+					e.preventDefault();
+
+					this.toggle(toggleElem);
 				}
-
-				e.preventDefault();
-
-				this.toggle(elem);
 			});
 		}
 	};
