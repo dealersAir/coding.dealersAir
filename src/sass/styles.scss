@@ -5,11 +5,7 @@
 
 /*main*/
 .main{
-	padding-top: 100px;
-	padding-bottom: 50px;
-	background: url(../images/dealersair.svg) no-repeat 50% 50%, url(../images/sky.jpg) no-repeat 50% 50%;
-	background-size: 90% auto, cover;
-	background-attachment: fixed, fixed;
+	padding-top: 60px;
 }
 
 /*full-page*/
@@ -52,32 +48,9 @@
 	}	
 }
 
-
-
 /*image*/
 .fullwidth-img{
 	width: 100%;
 	height: auto;
 }
 
-/*box*/
-.box{
-	background: #FFF;
-	padding: 15px;
-	border-radius: 3px;
-	box-shadow: 0 1px 11px rgba(0,0,0,.21);
-	&__tit{
-		color: $be2;
-	}
-	&__p{
-		font-size: 15px;
-		line-height: (20/15);
-		margin-bottom: 25px;
-		p{
-			margin-top: 20px;
-			&:first-child{
-				margin-top: 0 !important;
-			}
-		}
-	}
-}

@@ -5,7 +5,7 @@
 
 .header{
 	display: flex;
-	height: 100px;
+	height: 60px;
 	align-items: center;
 	transition: .21s;
 	&_fixed,
@@ -17,7 +17,6 @@
 		display: inline-block;
 		width: 100%;
 		max-width: 121px;
-		
 		img{
 			width: 100%;
 			height: auto;
