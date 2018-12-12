@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 09 2018 г., 20:10
+-- Время создания: Дек 12 2018 г., 18:02
 -- Версия сервера: 5.6.37
 -- Версия PHP: 7.0.21
 
@@ -33,15 +33,15 @@ CREATE TABLE `content` (
   `url` varchar(255) NOT NULL,
   `type` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `content` text NOT NULL
+  `text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `content`
 --
 
-INSERT INTO `content` (`id`, `url`, `type`, `title`, `content`) VALUES
-(1, 'cat/post', 'post', 'Первая запись', 'Привет. Это превая запись%)');
+INSERT INTO `content` (`id`, `url`, `type`, `title`, `text`) VALUES
+(1, 'css', 'category', 'CSS', 'Это css');
 
 --
 -- Индексы сохранённых таблиц
