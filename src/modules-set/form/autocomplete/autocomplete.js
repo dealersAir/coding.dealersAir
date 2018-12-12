@@ -4,75 +4,77 @@
 	"use strict";
 	
 	AutoComplete = {
-		field: null,
-		input: null,
+		fieldElem: null,
+		inputElem: null,
+		optionsElem: null,
 		valuesData: null,
-		inputValue: '',
+		setValuesData: null,
 		
 		open: function () {
-			this.field.classList.add('autocomplete_opened');
+			this.fieldElem.classList.add('autocomplete_opened');
 			
-			var opionsElem = this.field.querySelector('.autocomplete__options');
+			var optionsElem = this.optionsElem;
 			
-			opionsElem.style.height = opionsElem.scrollHeight +'px';
+			optionsElem.style.height = optionsElem.scrollHeight +'px';
 			
-			opionsElem.scrollTop = 0;
+			optionsElem.scrollTop = 0;
 			
 			setTimeout(function () {
-				if (opionsElem.scrollHeight > opionsElem.offsetHeight) {
-					opionsElem.classList.add('ovfauto');
+				if (optionsElem.scrollHeight > optionsElem.offsetHeight) {
+					optionsElem.classList.add('ovfauto');
 				}
 			}, 550);
 		},
 		
 		close: function () {
-			this.field.classList.remove('autocomplete_opened');
+			this.fieldElem.classList.remove('autocomplete_opened');
 			
-			var opionsElem = this.field.querySelector('.autocomplete__options');
+			var optionsElem = this.optionsElem;
 			
-			opionsElem.classList.remove('ovfauto');
+			optionsElem.classList.remove('ovfauto');
 			
-			opionsElem.style.height = 0;
+			optionsElem.style.height = 0;
 		},
 		
 		getValues: function () {
-			var optionsElem = this.field.querySelector('.autocomplete__options');
+			var optionsElem = this.optionsElem;
 			
-			if (this.input.value.length) {
-				var reg = new RegExp('^'+ this.input.value, 'i'),
-				data = JSON.parse(this.valuesData),
+			if (this.inputElem.value.length) {
+				var preReg = new RegExp(this.inputElem.value, 'i'),
 				values = '';
-
-				this.inputValue = this.input.value;
 				
-				for (var i = 0; i < data.length; i++) {
-					var dataVal = data[i];
-					
-					if (dataVal.name.match(reg)) {
-						values += '<li><button type="button" class="autocomplete__val">'+ dataVal.name +'</button></li>';
-					}
+				if (this.setValuesData) {
+					this.setValuesData(this.inputElem.value, (valuesData) => {
+						for (var i = 0; i < valuesData.length; i++) {
+							var dataVal = valuesData[i];
+							
+							if (dataVal.value.match(preReg)) {
+								values += '<li><button type="button" class="autocomplete__val">'+ dataVal.value +'</button></li>';
+							}
+						}
+						
+						if (values == '') {
+							values = '<li>Nothing found!</li>';
+						}
+						
+						optionsElem.innerHTML = values;
+						
+						this.open();
+					});
 				}
-				
-				optionsElem.innerHTML = values;
-				
-				if (values != '') {
-					this.open();
-				} else {
-					this.close();
-				}
-				
-				values = '';
 			} else {
 				optionsElem.innerHTML = '';
 				
 				this.close();
 			}
 		},
-
+		
 		selectVal: function (itemElem) {
 			var valueElem = itemElem.querySelector('.autocomplete__val');
-
-			this.input.value = valueElem.innerHTML;
+			
+			if (valueElem) {
+				this.inputElem.value = valueElem.innerHTML;
+			}
 		},
 		
 		keybinding: function (e) {
@@ -82,7 +84,7 @@
 			
 			e.preventDefault();
 			
-			var optionsElem = this.field.querySelector('.autocomplete__options'),
+			var optionsElem = this.optionsElem,
 			hoverItem = optionsElem.querySelector('li.hover');
 			
 			switch (key) {
@@ -95,7 +97,7 @@
 						nextItem.classList.add('hover');
 						
 						optionsElem.scrollTop = optionsElem.scrollTop + (nextItem.getBoundingClientRect().top - optionsElem.getBoundingClientRect().top);
-
+						
 						this.selectVal(nextItem);
 					}
 				} else {
@@ -103,7 +105,7 @@
 					
 					if (nextItem) {
 						nextItem.classList.add('hover');
-
+						
 						this.selectVal(nextItem);
 					}
 				}
@@ -118,7 +120,7 @@
 						nextItem.classList.add('hover');
 						
 						optionsElem.scrollTop = optionsElem.scrollTop + (nextItem.getBoundingClientRect().top - optionsElem.getBoundingClientRect().top);
-
+						
 						this.selectVal(nextItem);
 					}
 				} else {
@@ -126,9 +128,9 @@
 					
 					if (nextItem) {
 						nextItem.classList.add('hover');
-
+						
 						optionsElem.scrollTop = 9999;
-
+						
 						this.selectVal(nextItem);
 					}
 				}
@@ -137,8 +139,8 @@
 				case 13:
 				if (hoverItem) {
 					this.selectVal(hoverItem);
-
-					this.input.blur();
+					
+					this.inputElem.blur();
 				}
 			}
 		},
@@ -150,18 +152,19 @@
 				
 				if (!elem) return;
 				
-				this.field = elem.closest('.autocomplete');
-				this.input = elem;
+				this.fieldElem = elem.closest('.autocomplete');
+				this.inputElem = elem;
+				this.optionsElem = this.fieldElem.querySelector('.autocomplete__options');
 				
-				if (this.field.querySelector('.autocomplete__val')) {
-					this.open();
-				}
+				this.getValues();
 			}, true);
 			
 			// blur event
 			document.addEventListener('blur', (e) => {
 				if (e.target.closest('.autocomplete__input')) {
-					this.close();
+					setTimeout(() => {
+						this.close();
+					}, 21);
 				}
 			}, true);
 			
@@ -169,6 +172,15 @@
 			document.addEventListener('input', (e) => {
 				if (e.target.closest('.autocomplete__input')) {
 					this.getValues();
+				}
+			});
+			
+			// click event
+			document.addEventListener('click', (e) => {
+				var elem = e.target.closest('.autocomplete__val');
+				
+				if (elem) {
+					this.selectVal(elem.parentElement);
 				}
 			});
 			
