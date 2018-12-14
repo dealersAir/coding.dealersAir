@@ -1,5 +1,8 @@
-<script src="js/script.js"></script>
-<script src="js/common.js"></script>
+<script src="/templates/js/script.js">
+</script>
+<script src="/templates/js/common.js">
+</script>
 
 </body>
+
 </html>

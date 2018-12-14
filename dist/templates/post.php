@@ -5,16 +5,31 @@ include $_SERVER['DOCUMENT_ROOT'] . '/templates/inc/header.php';
 
 <!--MAIN/-->
 <main class="main">
-
-   <div class="row row_wrp">
-      <h1 class="title">
-         <?php echo $content->title; ?>
-      </h1>
-      <div class="content">
-         <?php echo $content->text; ?>
+   <article class="section">
+      <div class="row row_wrp">
+         <div class="col-12">
+            <h1 class="title">
+               <?php echo $content->title; ?>
+            </h1>
+         </div>
       </div>
-   </div>
+      <div class="article row row_wrp">
+         <div class="col-12">
+            <?php echo $content->text; ?>
+            <h2>Специальные символы</h2>
+            <p>
+               Список cпециальных символов: <code>[ \ ^ $ . | ? * + ( )</code>
+            </p>
+            <p>
+               Их необходимо экранировать. Чтоб экранировать спецсимвол, ставим перед ним обратный слеш <code>\</code>
+            </p>
+            <p>
+               <code>[</code> - открывающая скобка набора и диапазона
+            </p>
 
+         </div>
+      </div>
+   </article>
 </main>
 <!--/MAIN-->
 

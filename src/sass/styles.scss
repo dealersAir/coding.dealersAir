@@ -54,3 +54,43 @@
 	height: auto;
 }
 
+/* title */
+.title{
+	font-size: 30px;
+	font-weight: 700;
+	margin-bottom: em(35,30);
+}
+
+/* article */
+.article{
+	h2{
+		font-size: 22px;
+		font-weight: 700;
+		margin: em(45,22) 0 em(30,22);
+		@include fch(t);
+	}
+	p{
+		line-height: (22/16);
+		margin: em(20) 0;
+	}
+	pre{
+		line-height: (27/16);
+		padding: 10px 15px;
+		margin: em(20) 0;
+		background: $oe2;
+	}
+	code{
+		padding: 5px;
+		background: $oe2;
+	}
+	blockquote{
+		line-height: (22/16);
+		margin: em(20) 0;
+		color: $oe;
+		padding: 15px 30px;
+		background: $bk;
+		code{
+			color: $bk;
+		}
+	}
+}

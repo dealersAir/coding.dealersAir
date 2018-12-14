@@ -1,27 +1,46 @@
 @@include('_head.html', {"title": "dealersAir"})
 
 <!--HEADER/-->
-@@include('../modules/header/header.html', {"menu_item_current": "home", "prefix":""})
+@@include('../modules/header/header.html', {"menu_item_current": "", "prefix":""})
 <!--/HEADER-->
 
 <!--MAIN/-->
 <main class="main">
-
-	<div class="row maxw-960">
-		<div class="col-12">
-			<div class="box">
-				<h2 class="box__tit">Frontend Start Template</h2>
-				<div class="box__p">
-					<p>
-						Start template for frontend development. Based on build system Gulp, contains gulpfile and package file. To build CSS, the SASS preprocessor is used. Template contains frequently used features in frontend.
-					</p>
-				</div>
-				<a href="https://fst.dealersair.com" target="_blank" class="btn btn_be">Demo</a>
-				<a href="https://github.com/lufter21/startTemplate" target="_blank" class="github-btn">View on Github</a>
+	<article class="section">
+		<div class="row row_wrp">
+			<div class="col-12">
+				<h1 class="title">
+					Header H1
+				</h1>
 			</div>
 		</div>
-	</div>
-
+		<div class="article row row_wrp">
+			<div class="col-12">
+				<h2>Специальные символы</h2>
+				<p>
+					Список cпециальных символов: <code>[ \ ^ $ . | ? * + ( )</code>
+				</p>
+				<p>
+					Чтоб превратить спецсимвол в обычный, его необходимо экранировать, ставим перед ним обратный слеш <code>\</code>
+				</p>
+				<h2>Создание регулярного выражения</h2>
+				<p>
+					Регулярное выражение состоит из шаблона (pattern) и <b>необязательных</b> флагов (flags).
+				</p>
+<pre><code>var reg = /pattern/;
+var reg = /pattern/flags;</code></pre>
+				<p>
+					или
+				</p>
+<pre><code>var reg = new RegExp('pattern');
+var reg = new RegExp('pattern', 'flags');</code></pre>
+				<blockquote>
+					При создании регулярки через <strong>new RegExp()</strong>, символьные классы (\w, \d, \s и т.д.), необходимо экранировать.
+					<pre><code>var reg = new RegExp('\\w*');</code></pre>
+				</blockquote>
+			</div>
+		</div>
+	</article>
 </main>
 <!--/MAIN-->
 
