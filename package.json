@@ -1,7 +1,7 @@
 {
-  "name": "dealersAir",
+  "name": "coding.dealersAir",
   "version": "2.1.0",
-  "description": "dealersAir main resource",
+  "description": "coding.dealersAir template",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
