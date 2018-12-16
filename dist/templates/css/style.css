@@ -1159,9 +1159,9 @@ code {
 .menu__arr {
   display: none;
   width: 12px;
-  height: 8px;
+  height: 17px;
   position: relative;
-  bottom: 1px;
+  top: 2px;
   margin-left: 7px;
   border: none;
   background: none;
