@@ -35,7 +35,7 @@
 <header id="header" class="header">
 	<div class="row row_wrp row_col-middle header__row">
 		<div class="col p-y-0">
-			<a href="index.html" class="header__logo"><img src="/templates/images/dealersair.svg" alt="dealersAir"></a>
+			<a href="index.html" class="header__logo"><img src="/templates/images/coding.svg" alt="coding.dealersAir"></a>
 		</div>
 		<div class="col col_grow p-y-0">
 			<div class="row row_col-middle">
@@ -111,9 +111,21 @@ var reg = /pattern/flags;</code></pre>
 <pre><code>var reg = new RegExp('pattern');
 var reg = new RegExp('pattern', 'flags');</code></pre>
 				<blockquote>
-					При создании регулярки через <strong>new RegExp()</strong>, символьные классы (\w, \d, \s и т.д.), необходимо экранировать.
+					<span class="att-icon">При создании регулярки через <strong>new RegExp()</strong>, символьные классы (\w, \d, \s и т.д.), необходимо экранировать.</span>
 					<pre><code>var reg = new RegExp('\\w*');</code></pre>
 				</blockquote>
+				<h2>Флаги</h2>
+				<p>
+					<code>i</code> - игнорирует регистр.
+				</p>
+				<p>
+					<code>g</code> - ищет все совпадения.
+				</p>
+				<p>
+					<code>m</code> - многострочный режим. Cимволы <code>^</code> и <code>$</code> обозначают начало и конец каждой строки.
+				</p>
+				<pre><code>var reg = /pattern/igm; <code class="code-comm">\\порядок флагов не имеет значения</code>
+var reg = new RegExp('pattern', 'mig'); <code class="code-comm">\\порядок флагов не имеет значения</code></code></pre>
 			</div>
 		</div>
 	</article>

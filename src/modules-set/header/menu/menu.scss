@@ -35,6 +35,7 @@
 	&__a{
 		font-size: 18px;
 		font-weight: 700;
+		color: $be;
 		line-height: normal;
 		text-decoration: none;
 		position: relative;
@@ -75,7 +76,7 @@
 a.menu__a{
 	@media(min-width: 1001px){
 		&:hover{
-			color: $oe;
+			color: $be3;
 		}
 	}
 }
@@ -134,12 +135,13 @@ a.menu__a{
 		display: block;
 		font-size: 15px;
 		font-weight: 500;
+		color: $be;
 		padding: 10px 0;
 		line-height: normal;
 		text-decoration: none;
 		transition: .21s;	
 		&:hover{
-			color: $oe;
+			color: $be3;
 		}
 	}
 	@media(max-width: 1000px){

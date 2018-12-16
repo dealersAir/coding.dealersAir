@@ -4,7 +4,7 @@
 
 %svg-angle-down {
 	@extend %svg-common;
-	background-position: 25.26997840172786% 50%;
+	background-position: 53.597122302158276% 0;
 }
 
 %svg-angle-down-dims {
@@ -12,49 +12,19 @@
 	height: 532px;
 }
 
-%svg-arrow-alt-circle-down {
+%svg-exclamation-triangle {
 	@extend %svg-common;
-	background-position: 31.08433734939759% 100%;
+	background-position: 0 0;
 }
 
-%svg-arrow-alt-circle-down-dims {
-	width: 532px;
-	height: 532px;
-}
-
-%svg-arrow-right {
-	@extend %svg-common;
-	background-position: 0 50%;
-}
-
-%svg-arrow-right-dims {
-	width: 468px;
-	height: 532px;
-}
-
-%svg-check {
-	@extend %svg-common;
-	background-position: 67.72727272727273% 45.70446735395189%;
-}
-
-%svg-check-dims {
-	width: 432px;
-	height: 432px;
-}
-
-%svg-facebook {
-	@extend %svg-common;
-	background-position: 69.1415313225058% 0;
-}
-
-%svg-facebook-dims {
-	width: 468px;
+%svg-exclamation-triangle-dims {
+	width: 596px;
 	height: 532px;
 }
 
 %svg-github {
 	@extend %svg-common;
-	background-position: 0 100%;
+	background-position: 100% 0;
 }
 
 %svg-github-dims {
@@ -62,63 +32,13 @@
 	height: 532px;
 }
 
-%svg-odnoklassniki {
-	@extend %svg-common;
-	background-position: 89.63282937365011% 100%;
-}
-
-%svg-odnoklassniki-dims {
-	width: 340px;
-	height: 532px;
-}
-
-%svg-plus-circle {
-	@extend %svg-common;
-	background-position: 63.13253012048193% 100%;
-}
-
-%svg-plus-circle-dims {
-	width: 532px;
-	height: 532px;
-}
-
 %svg-search {
 	@extend %svg-common;
-	background-position: 100% 0;
+	background-position: 0 100%;
 }
 
 %svg-search-dims {
 	width: 532px;
-	height: 532px;
-}
-
-%svg-twitter {
-	@extend %svg-common;
-	background-position: 100% 50%;
-}
-
-%svg-twitter-dims {
-	width: 532px;
-	height: 532px;
-}
-
-%svg-vk {
-	@extend %svg-common;
-	background-position: 37.34335839598997% 0;
-}
-
-%svg-vk-dims {
-	width: 596px;
-	height: 532px;
-}
-
-%svg-youtube {
-	@extend %svg-common;
-	background-position: 0 0;
-}
-
-%svg-youtube-dims {
-	width: 596px;
 	height: 532px;
 }
 

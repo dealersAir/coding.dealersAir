@@ -82,15 +82,15 @@
 	code{
 		padding: 5px;
 		background: $oe2;
+		&.code-comm{
+			padding: 0;
+			color: $gy;
+		}
 	}
 	blockquote{
 		line-height: (22/16);
-		margin: em(20) 0;
-		color: $oe;
+		margin: em(35) 0;
 		padding: 15px 30px;
-		background: $bk;
-		code{
-			color: $bk;
-		}
+		border: 2px solid $gy;
 	}
 }

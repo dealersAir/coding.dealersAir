@@ -7,7 +7,7 @@ class Main extends Core {
 	}
 
 	private function fetchContent() {
-		$cont = $this->_db->prepare('SELECT * FROM content WHERE url=?');
+		$cont = $this->_db->prepare('SELECT * FROM coding_content WHERE url=?');
 		$cont->execute(array($this->_opt['url']));
 		$this->_content = $cont->fetch(PDO::FETCH_OBJ);
 	}
