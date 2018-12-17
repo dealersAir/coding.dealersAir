@@ -1,20 +1,24 @@
 <?php
-$meta = array('title' => $content->title);
+$meta = array('title' => $content->meta_title);
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/inc/header.php';
 ?>
 
 <!--MAIN/-->
 <main class="main">
-
-   <div class="row row_wrp">
-      <h1 class="title">
-         <?php echo $content->title; ?>
-      </h1>
-      <div class="content">
-         <?php echo $content->text; ?>
+   <article class="section">
+      <div class="row row_wrp">
+         <div class="col-12">
+            <h1 class="title">
+               <?php echo $content->title; ?>
+            </h1>
+         </div>
       </div>
-   </div>
-
+      <div class="article row row_wrp">
+         <div class="col-12">
+            <?php echo $content->text; ?>
+         </div>
+      </div>
+   </article>
 </main>
 <!--/MAIN-->
 
