@@ -870,9 +870,9 @@ code {
 /*link*/
 .link {
   text-decoration: none;
-  color: #215485;
-  border-bottom: 2px solid #215485;
-  transition: .5s;
+  color: #6699cc;
+  border-bottom: 1px solid #6699cc;
+  transition: .21s;
 }
 
 .link:hover {
@@ -1412,9 +1412,8 @@ code {
 }
 
 .list li {
-  line-height: 1.5;
   padding-left: 30px;
-  margin-top: 1.875em;
+  margin-top: 30px;
   position: relative;
 }
 
@@ -1430,8 +1429,9 @@ ul.list li:before {
   width: 9px;
   height: 9px;
   left: 3px;
-  top: 6px;
-  background: #ff0000;
+  top: 5px;
+  border-radius: 50%;
+  background: #6699cc;
 }
 
 ol.list {

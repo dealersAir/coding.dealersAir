@@ -24,7 +24,7 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
          <div class="col-12">
             <ul class="list">
                <?php foreach ($main->getPosts() as $post) { ?>
-               <li><a href="<?php echo $post->url; ?>"><?php echo $post->title; ?></a></li>
+               <li><a href="<?php echo $post->url; ?>" class="link"><?php echo $post->title; ?></a></li>
                <?php } ?>
             </ul>
          </div>

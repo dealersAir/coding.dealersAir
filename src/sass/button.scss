@@ -95,9 +95,9 @@
 /*link*/
 .link{
 	text-decoration: none;
-	color: $be;
-	border-bottom: 2px solid $be;
-	transition: .5s;
+	color: $be2;
+	border-bottom: 1px solid $be2;
+	transition: .21s;
 	&:hover{
 		border-bottom-color: transparent;
 	}

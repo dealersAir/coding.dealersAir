@@ -32,9 +32,8 @@
 .list{
 	list-style: none;
 	li{
-		line-height: (24/16);
 		padding-left: 30px;
-		margin-top: em(30);
+		margin-top: 30px;
 		@include fch(t);
 		position: relative;
 		&:before{
@@ -49,8 +48,9 @@ ul.list{
 			width: 9px;
 			height: 9px;
 			left: 3px;
-			top: 6px;
-			background: $rd;
+			top: 5px;
+			border-radius: 50%;
+			background: $be2;
 		}
 	}
 }
