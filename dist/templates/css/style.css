@@ -870,6 +870,7 @@ code {
 /*link*/
 .link {
   text-decoration: none;
+  color: #215485;
   border-bottom: 2px solid #215485;
   transition: .5s;
 }
@@ -1413,17 +1414,37 @@ code {
 .list li {
   line-height: 1.5;
   padding-left: 30px;
-  margin: 1.875em 0;
+  margin-top: 1.875em;
   position: relative;
 }
 
+.list li:first-child {
+  margin-top: 0 !important;
+}
+
 .list li:before {
+  position: absolute;
+}
+
+ul.list li:before {
   width: 9px;
   height: 9px;
-  position: absolute;
   left: 3px;
   top: 6px;
   background: #ff0000;
+}
+
+ol.list {
+  counter-reset: listCounter;
+}
+
+ol.list li:before {
+  counter-increment: listCounter;
+  content: counter(listCounter) ".";
+  color: #215485;
+  font-weight: 700;
+  top: 0;
+  left: 0;
 }
 
 /*image*/
@@ -1460,6 +1481,7 @@ code {
   padding: 10px 15px;
   margin: 1.25em 0;
   background: #FFE0B3;
+  overflow: auto;
 }
 
 .article code {

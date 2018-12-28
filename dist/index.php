@@ -2,15 +2,12 @@
 error_reporting(E_ALL ^ E_NOTICE);
 ini_set('display_errors', 1);
 
-if ((float)phpversion() < 5.3) {
-	exit('App needs php version 5.3 or higher');
-}
+require_once $_SERVER['DOCUMENT_ROOT'] .'/config.php';
 
 // load classes
-function loadClasses($class_name)
-{
-	if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/classes/' . $class_name . '.php')) {
-		require_once $_SERVER['DOCUMENT_ROOT'] . '/classes/' . $class_name . '.php';
+function loadClasses($class_name) {
+	if (file_exists($_SERVER['DOCUMENT_ROOT'] .'/classes/'. $class_name .'.php')) {
+		require_once $_SERVER['DOCUMENT_ROOT'] .'/classes/'. $class_name .'.php';
 	}
 }
 
@@ -24,11 +21,11 @@ if (!empty($_GET['route'])) {
 	$content = $main->getContent();
 
 	if (!empty($content)) {
-		require $_SERVER['DOCUMENT_ROOT'] . '/templates/' . $content->type . '.php';
+		require $_SERVER['DOCUMENT_ROOT'] .'/templates/'. $content->type .'.php';
 	} else {
-		require $_SERVER['DOCUMENT_ROOT'] . '/templates/404.php';
+		require $_SERVER['DOCUMENT_ROOT'] .'/templates/404.php';
 	}
 } else {
-	require $_SERVER['DOCUMENT_ROOT'] . '/templates/home.php';
+	require $_SERVER['DOCUMENT_ROOT'] .'/templates/home.php';
 }
 ?>

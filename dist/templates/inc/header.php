@@ -38,6 +38,9 @@
                            <!-- <li class="sub-menu__item">
                               <a href="/html" class="sub-menu__a">HTML</a>
                            </li> -->
+                           <li class="sub-menu__item">
+                              <a href="/php" class="sub-menu__a">php</a>
+                           </li>
                         </ul>
                      </li>
                      <!-- <li class="menu__item menu__item_has-children">

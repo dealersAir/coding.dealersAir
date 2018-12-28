@@ -82,53 +82,56 @@
 
 <!--MAIN/-->
 <main class="main">
-	<article class="section">
-		<div class="row row_wrp">
-			<div class="col-12">
-				<h1 class="title">
-					Header H1
-				</h1>
-			</div>
-		</div>
-		<div class="article row row_wrp">
-			<div class="col-12">
-				<h2>Специальные символы</h2>
-				<p>
-					Список cпециальных символов: <code>[ \ ^ $ . | ? * + ( )</code>
-				</p>
-				<p>
-					Чтоб превратить спецсимвол в обычный, его необходимо экранировать, ставим перед ним обратный слеш <code>\</code>
-				</p>
-				<h2>Создание регулярного выражения</h2>
-				<p>
-					Регулярное выражение состоит из шаблона (pattern) и <b>необязательных</b> флагов (flags).
-				</p>
-<pre><code>var reg = /pattern/;
-var reg = /pattern/flags;</code></pre>
-				<p>
-					или
-				</p>
-<pre><code>var reg = new RegExp('pattern');
-var reg = new RegExp('pattern', 'flags');</code></pre>
-				<blockquote>
-					<span class="att-icon">При создании регулярки через <strong>new RegExp()</strong>, символьные классы (\w, \d, \s и т.д.), необходимо экранировать.</span>
-					<pre><code>var reg = new RegExp('\\w*');</code></pre>
-				</blockquote>
-				<h2>Флаги</h2>
-				<p>
-					<code>i</code> - игнорирует регистр.
-				</p>
-				<p>
-					<code>g</code> - ищет все совпадения.
-				</p>
-				<p>
-					<code>m</code> - многострочный режим. Cимволы <code>^</code> и <code>$</code> обозначают начало и конец каждой строки.
-				</p>
-				<pre><code>var reg = /pattern/igm; <code class="code-comm">\\порядок флагов не имеет значения</code>
-var reg = new RegExp('pattern', 'mig'); <code class="code-comm">\\порядок флагов не имеет значения</code></code></pre>
-			</div>
-		</div>
-	</article>
+   <article class="section">
+      <div class="row row_wrp">
+         <div class="col-12">
+            <h1 class="title">
+               Header H1
+            </h1>
+         </div>
+      </div>
+      <div class="article row row_wrp">
+         <div class="col-12">
+<p>
+Для работы с базой данных будем использовать PDO. Устанавливаем соединение и кодировку.
+<pre><code>$db = new PDO('mysql:host=localhost;dbname=database_name', 'user_name', 'user_password');
+$db -> query('SET NAMES utf8');</code></pre>
+</p>
+<h2>Чтение из БД</h2>
+<p>
+Подготавливаем запрос к базе данных. <code>table_name</code> - имя таблицы. <code>column_name</code> - имя колонки в таблице. <code>column_value</code> - искомое значение в колонке таблицы.
+</p>
+<pre><code>$request = $db -> prepare('SELECT * FROM table_name WHERE column_name=?');
+$request -> execute(array('column_value'));</code></pre>
+<p>
+Получаем строки таблицы
+</p>
+<pre><code>$result = $request -> fetch(); <code class="code-comm">// одна строка</code>
+$result = $request -> fetchAll();  <code class="code-comm">// все строки</code></code></pre>
+<p>
+По умолчанию, будет возвращено два массива, с индексами, которые соответствуют именам столбцов, и нумерованный массив.
+</p>
+<h2>Запись в БД</h2>
+<pre><code>$request = $db -> prepare('INSERT INTO table_name (column_name_1, column_name_2) VALUES (:column_name_1, :column_name_2)');
+$request -> execute(array(
+   'column_name_1' => 'value_1',
+   'column_name_2' => 'value_2'
+));</code></pre>
+<p>
+Если строка с уникальным значением (поле с уникальным ключом) существует - обновляем значения:
+</p>
+<pre><code>$request = $db -> prepare('INSERT INTO table_name (column_name_1, column_name_2) VALUES (:column_name_1, :column_name_2) ON DUPLICATE KEY UPDATE column_name_2=:u_column_name_2');
+$request -> execute(array(
+   'column_name_1' => 'value_1',
+   'column_name_2' => 'value_2',
+   'u_column_name_2' => 'value_3'
+));</code></pre>
+<h2>Обновление строки</h2>
+<pre><code>$request = $db -> prepare('UPDATE table_name SET column_name_1=?, column_name_2=? WHERE column_name=?');
+$request -> execute(array('column_value_1', 'column_value_2', 'column_value'));</code></pre>
+         </div>
+      </div>
+   </article>
 </main>
 <!--/MAIN-->
 

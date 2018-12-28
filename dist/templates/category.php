@@ -1,6 +1,6 @@
 <?php
 $meta = array('title' => $content->meta_title);
-include $_SERVER['DOCUMENT_ROOT'] . '/templates/inc/header.php';
+include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
 ?>
 
 <!--MAIN/-->
@@ -19,6 +19,17 @@ include $_SERVER['DOCUMENT_ROOT'] . '/templates/inc/header.php';
          </div>
       </div>
    </article>
+   <div class="section">
+      <div class="row row_wrp">
+         <div class="col-12">
+            <ul class="list">
+               <?php foreach ($main->getPosts() as $post) { ?>
+               <li><a href="<?php echo $post->url; ?>"><?php echo $post->title; ?></a></li>
+               <?php } ?>
+            </ul>
+         </div>
+      </div>
+   </div>
 </main>
 <!--/MAIN-->
 
