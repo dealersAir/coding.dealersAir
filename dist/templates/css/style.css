@@ -978,7 +978,7 @@ code {
 }
 
 .header_fixed {
-  box-shadow: 0 1px 11px rgba(0, 0, 0, 0.21);
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.21);
 }
 
 .header__logo {
@@ -1660,7 +1660,8 @@ code {
 
 .footer {
   background: #FFF;
-  box-shadow: 0 -1px 11px rgba(0, 0, 0, 0.21);
+  box-shadow: 0 -1px 7px rgba(0, 0, 0, 0.21);
+  padding: 15px 0;
 }
 
 .footer__logo {
