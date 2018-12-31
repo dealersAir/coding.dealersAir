@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	// anchor
 	Anchor.init('.js-anchor', 700, 100);
 
+	// popup init
+	Popup.init('.js-open-popup');
+	MediaPopup.init('.js-open-media-popup');
+
 	// get content via Ajax
 	var getCont = new GetContentAjax({
 		eventBtn: '.js-get-content-ajax',

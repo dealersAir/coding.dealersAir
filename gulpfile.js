@@ -23,7 +23,7 @@ var modulesOn = [
 	// 'flex-image',
 	// 'cover-image',
 	// 'video',
-	// 'popup',
+	'popup',
 	// 'form/checkbox',
 	// 'form/radio',
 	// 'form/select',

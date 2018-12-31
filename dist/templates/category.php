@@ -13,6 +13,7 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
             </h1>
          </div>
       </div>
+      <?php if (!empty($content->text)) ?>
       <div class="article row row_wrp">
          <div class="col-12">
             <?php echo $content->text; ?>
@@ -33,4 +34,4 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
 </main>
 <!--/MAIN-->
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/templates/inc/footer.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/footer.php'; ?>

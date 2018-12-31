@@ -98,6 +98,9 @@
 	color: $be2;
 	border-bottom: 1px solid $be2;
 	transition: .21s;
+	&_dash{
+		border-bottom-style: dashed;
+	}
 	&:hover{
 		border-bottom-color: transparent;
 	}

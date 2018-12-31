@@ -26,7 +26,7 @@
                   <!--Menu/-->
                   <ul class="menu">
                      <li class="menu__item menu__item_has-children">
-                        <span class="menu__a">Записки прогера</span>
+                        <span class="menu__a">Шпаргалка</span>
                         <button class="menu__arr"></button>
                         <ul class="sub-menu menu__sub-menu">
                            <!-- <li class="sub-menu__item">
