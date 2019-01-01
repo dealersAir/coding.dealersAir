@@ -93,16 +93,31 @@
 }
 
 /*link*/
-.link{
+%link{
 	text-decoration: none;
-	color: $be2;
-	border-bottom: 1px solid $be2;
+	border-bottom: 1px solid;
 	transition: .21s;
+	&:hover{
+		border-bottom-color: transparent;
+	}
+}
+.link{
+	@extend %link;
+	color: $be;
+	border-bottom-color: $be;
+}
+.light-link{
+	@extend %link;
+	color: $be2;
+	border-bottom-color: $be2;
 	&_dash{
 		border-bottom-style: dashed;
 	}
-	&:hover{
+	&_rev{
 		border-bottom-color: transparent;
+		&:hover{
+			border-bottom-color: $be2;
+		}
 	}
 }
 

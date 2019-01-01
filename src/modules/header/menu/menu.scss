@@ -35,7 +35,7 @@
 	&__a{
 		font-size: 18px;
 		font-weight: 700;
-		color: $be;
+		color: $be2;
 		line-height: normal;
 		text-decoration: none;
 		position: relative;
@@ -111,6 +111,7 @@ a.menu__a{
 		@extend %ab;
 		border: 1px solid $gy;
 		background: $llgy;
+		box-shadow: 1px 1px 7px rgba(0, 0, 0, .21);
 		position: absolute;
 		top: 34px;
 		bottom: 0;

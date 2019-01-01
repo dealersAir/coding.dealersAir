@@ -882,19 +882,36 @@ code {
 }
 
 /*link*/
-.link {
+.link, .light-link {
   text-decoration: none;
-  color: #6699cc;
-  border-bottom: 1px solid #6699cc;
+  border-bottom: 1px solid;
   transition: .21s;
 }
 
-.link_dash {
+.link:hover, .light-link:hover {
+  border-bottom-color: transparent;
+}
+
+.link {
+  color: #215485;
+  border-bottom-color: #215485;
+}
+
+.light-link {
+  color: #6699cc;
+  border-bottom-color: #6699cc;
+}
+
+.light-link_dash {
   border-bottom-style: dashed;
 }
 
-.link:hover {
+.light-link_rev {
   border-bottom-color: transparent;
+}
+
+.light-link_rev:hover {
+  border-bottom-color: #6699cc;
 }
 
 /*paginate*/
@@ -973,7 +990,7 @@ code {
   display: flex;
   height: 60px;
   align-items: center;
-  background: #f0f1f2;
+  background: #212121;
   transition: .21s;
 }
 
@@ -1166,7 +1183,7 @@ code {
 .menu__a {
   font-size: 18px;
   font-weight: 700;
-  color: #215485;
+  color: #6699cc;
   line-height: normal;
   text-decoration: none;
   position: relative;
@@ -1242,6 +1259,7 @@ code {
 .sub-menu::after {
   border: 1px solid #aaaaaa;
   background: #f0f1f2;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.21);
   position: absolute;
   top: 34px;
   bottom: 0;
@@ -1659,8 +1677,8 @@ code {
 }
 
 .footer {
-  background: #FFF;
-  box-shadow: 0 -1px 7px rgba(0, 0, 0, 0.21);
+  background: #212121;
+  color: #aaaaaa;
   padding: 15px 0;
 }
 
@@ -1708,7 +1726,7 @@ code {
 }
 
 .foot-nav__a {
-  color: #215485;
+  color: #6699cc;
   letter-spacing: 0.8px;
   text-decoration: none;
   border-bottom: 1px solid transparent;
@@ -1716,7 +1734,7 @@ code {
 }
 
 .foot-nav__a:hover {
-  border-bottom-color: #215485;
+  border-bottom-color: #6699cc;
 }
 
 .list li:before {
@@ -1783,7 +1801,7 @@ ul.list li:before {
   left: 3px;
   top: 5px;
   border-radius: 50%;
-  background: #6699cc;
+  background: #215485;
 }
 
 ol.list {
@@ -1824,33 +1842,45 @@ ol.list li:before {
 }
 
 .article p {
-  line-height: 1.375;
-  margin: 1.25em 0;
+  line-height: 1.45;
+  margin-top: 1.5625em;
+}
+
+.article p:first-child {
+  margin-top: 0 !important;
 }
 
 .article pre {
-  line-height: 1.6875;
+  line-height: 1.7;
   padding: 10px 15px;
-  margin: 1.25em 0;
+  margin-top: 1.5625em;
   background: #FFE0B3;
   overflow: auto;
 }
 
+.article pre:first-child {
+  margin-top: 0 !important;
+}
+
 .article code {
-  padding: 5px;
+  padding: 3px 7px;
   background: #FFE0B3;
 }
 
 .article code.code-comm {
   padding: 0;
-  color: #aaaaaa;
+  color: #BFA072;
 }
 
 .article blockquote {
   line-height: 1.375;
-  margin: 2.1875em 0;
+  margin-top: 2.1875em;
   padding: 15px 30px;
   border: 2px solid #aaaaaa;
+}
+
+.article blockquote:first-child {
+  margin-top: 0 !important;
 }
 
 .menu__arr, .att-icon::before, .github-btn:after, .form__btn_search:before {

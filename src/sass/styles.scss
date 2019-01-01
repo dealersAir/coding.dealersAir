@@ -50,7 +50,7 @@ ul.list{
 			left: 3px;
 			top: 5px;
 			border-radius: 50%;
-			background: $be2;
+			background: $be;
 		}
 	}
 }
@@ -90,27 +90,30 @@ ol.list{
 		@include fch(t);
 	}
 	p{
-		line-height: (22/16);
-		margin: em(20) 0;
+		line-height: 1.45;
+		margin-top: em(25);
+		@include fch(t);
 	}
 	pre{
-		line-height: (27/16);
+		line-height: 1.7;
 		padding: 10px 15px;
-		margin: em(20) 0;
+		margin-top: em(25);
+		@include fch(t);
 		background: $oe2;
 		overflow: auto;
 	}
 	code{
-		padding: 5px;
+		padding: 3px 7px;
 		background: $oe2;
 		&.code-comm{
 			padding: 0;
-			color: $gy;
+			color: $oe3;
 		}
 	}
 	blockquote{
 		line-height: (22/16);
-		margin: em(35) 0;
+		margin-top: em(35);
+		@include fch(t);
 		padding: 15px 30px;
 		border: 2px solid $gy;
 	}

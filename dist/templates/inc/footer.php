@@ -23,7 +23,7 @@
 		<div class="col col_grow">
 			<div class="footer__txt">
 				&copy; <?php echo date('Y'); ?> coding.dealersAir, https://coding.dealersair.com<br>
-				Licensed under <a href="#license" data-popup="#license" class="js-open-popup link link_dash">MIT License</a>
+				Licensed under <a href="#license" data-popup="#license" class="js-open-popup light-link light-link_rev light-link_dash">MIT License</a>
 			</div>
       </div>
       <div class="col">

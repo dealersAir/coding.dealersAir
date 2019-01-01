@@ -5,7 +5,9 @@
 
 .footer{
 	background: #FFF;
-	box-shadow: 0 -1px 11px rgba(0,0,0,.21);
+	box-shadow: 0 -1px 7px $llgy_21;
+	background: $llgy;
+	padding: 15px 0;
 	&__logo{
 		display: inline-block;
 		width: 120px;
@@ -17,6 +19,10 @@
 	&__txt{
 		font-size: 15px;
 		line-height: 1.45;
+		p{
+			margin-top: 20px;
+			@include fch(t);
+		}
 	}
 	@media(max-width: 1200px){
 		
