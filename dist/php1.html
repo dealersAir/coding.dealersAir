@@ -109,7 +109,7 @@ $request -> execute(array('column_value'));</code></pre>
 <pre><code>$result = $request -> fetch(); <code class="code-comm">// одна строка</code>
 $result = $request -> fetchAll();  <code class="code-comm">// все строки</code></code></pre>
 <p>
-По умолчанию, будет возвращено два массива, с индексами, которые соответствуют именам столбцов, и нумерованный массив.
+По умолчанию, будет возвращен массив, с индексами, которые соответствуют именам столбцов, и дубликат значений с числовыми индексами.
 </p>
 <h2>Запись в БД</h2>
 <pre><code>$request = $db -> prepare('INSERT INTO table_name (column_name_1, column_name_2) VALUES (:column_name_1, :column_name_2)');

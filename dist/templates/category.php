@@ -8,9 +8,7 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
    <div class="section">
       <article class="row row_wrp">
          <div class="col-12">
-            <h1 class="title">
-               <?php echo $content->title; ?>
-            </h1>
+            <h1 class="title"><?php echo $content->title; ?></h1>
          </div>
          <?php if (!empty($content->text)) { ?>
          <div class="article col-12">

@@ -26,6 +26,8 @@ if (!empty($_GET['route'])) {
 		require $_SERVER['DOCUMENT_ROOT'] .'/templates/404.php';
 	}
 } else {
+	$home = new Home();
+	
 	require $_SERVER['DOCUMENT_ROOT'] .'/templates/home.php';
 }
 ?>

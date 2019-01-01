@@ -15,7 +15,7 @@
 	<div class="row row_wrp">
 		<div class="col-12">
 			<div class="footer__txt">
-				Шпаргалка для программистов, решение практических задач в программировании.
+				Шпаргалка программиста, решение практических задач в программировании.
 			</div>
       </div>
 	</div>
@@ -43,7 +43,7 @@
 				MIT License
 			</p>
 			<p>
-				Copyright (c) 2018 coding.dealersAir, https://coding.dealersair.com
+				Copyright (c) <?php echo date('Y'); ?> coding.dealersAir, https://coding.dealersair.com
 			</p>
 			<p>
 				Permission is hereby granted, free of charge, to any person obtaining a copy
