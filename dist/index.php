@@ -15,9 +15,9 @@ spl_autoload_register('loadClasses');
 
 // get content
 if (!empty($_GET['route'])) {
-	$route = trim(htmlspecialchars(strip_tags($_GET['route'])));
+	$url = trim(htmlspecialchars(strip_tags($_GET['route'])));
 
-	$main = new Main(array('url' => $route));
+	$main = new Main(array('url' => $url));
 	$content = $main->getContent();
 
 	if (!empty($content)) {

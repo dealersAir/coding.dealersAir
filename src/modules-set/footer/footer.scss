@@ -4,9 +4,8 @@
 @import "../../sass/mixins";
 
 .footer{
-	background: #FFF;
-	box-shadow: 0 -1px 7px $llgy_21;
-	background: $llgy;
+	background: $bk;
+	color: $gy;
 	padding: 15px 0;
 	&__logo{
 		display: inline-block;
@@ -40,13 +39,13 @@
 		}
 	}
 	&__a{
-		color: $be;
+		color: $be2;
 		letter-spacing: 0.8px;
 		text-decoration: none;
 		border-bottom: 1px solid transparent;
 		transition: .5s;
 		&:hover{
-			border-bottom-color: $be;
+			border-bottom-color: $be2;
 		}
 	}
 }
