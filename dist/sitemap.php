@@ -15,11 +15,12 @@ spl_autoload_register('loadClasses');
 
 // new sitemap
 $conf = array(
-   'base' => 'https://'. $_SERVER['HTTP_HOST']
+	'base' => 'https://'. $_SERVER['HTTP_HOST'],
+	'excl' => array('css', 'html')
 );
 
 $smap = new SitemapXML($conf);
-$sitemap_xml = $smap -> getSitemap();
+$sitemap_xml = $smap -> getSitemapXml();
 
 $sm_file = fopen($_SERVER['DOCUMENT_ROOT'] .'/sitemap.xml', 'w');
 fwrite($sm_file, $sitemap_xml);

@@ -14,7 +14,7 @@ class SitemapXML extends Core {
 	
 	public function createSitemap() {
 		$this -> _xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8" ?>'."\n".'<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" />');
-
+		
 		$content = $this -> fetchContent();
 		
 		// home page
@@ -25,14 +25,16 @@ class SitemapXML extends Core {
 		
 		// pages
 		foreach ($content as $val) {
-			$url = $this -> _xml -> addChild('url');
-			$url -> addChild('loc', $this -> _opt['base'] .'/'. $val -> url);
-			$url -> addChild('lastmod', explode(' ', $val -> modified)[0]);
-			$url -> addChild('changefreq', 'always');
+			if (!in_array($val -> url, $this -> _opt['excl'])) {
+				$url = $this -> _xml -> addChild('url');
+				$url -> addChild('loc', $this -> _opt['base'] .'/'. $val -> url);
+				$url -> addChild('lastmod', explode(' ', $val -> modified)[0]);
+				$url -> addChild('changefreq', 'always');
+			}
 		}
 	}
 	
-	public function getSitemap() {
+	public function getSitemapXml() {
 		return $this -> _xml -> asXML();
 	}
 }
