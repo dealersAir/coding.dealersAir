@@ -18,10 +18,10 @@ if (!empty($_GET['route'])) {
 	$url = trim(htmlspecialchars(strip_tags($_GET['route'])));
 
 	$main = new Main(array('url' => $url));
-	$content = $main->getContent();
+	$content = $main -> getContent();
 
 	if (!empty($content)) {
-		require $_SERVER['DOCUMENT_ROOT'] .'/templates/'. $content->type .'.php';
+		require $_SERVER['DOCUMENT_ROOT'] .'/templates/'. $content -> type .'.php';
 	} else {
 		require $_SERVER['DOCUMENT_ROOT'] .'/templates/404.php';
 	}
