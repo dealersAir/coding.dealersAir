@@ -119,6 +119,16 @@
 </div>
 <!--/POPUPs-->
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-49744337-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-49744337-5');
+</script>
+
 <script src="/templates/js/script.js"></script>
 <script src="/templates/js/common.js"></script>
 </body>

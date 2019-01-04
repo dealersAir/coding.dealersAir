@@ -1,1 +1,2 @@
 Host: https://coding.dealersair.com
+Sitemap: https://coding.dealersair.com/sitemap.xml
