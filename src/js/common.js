@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	// anchor
 	Anchor.init('.js-anchor', 700, 100);
 
+	// alert
+	new Alert({
+		content: 'На нашем веб-сайте используются файлы cookies, которые позволяют улучшить Ваше взаимодействие с сайтом.<br> Когда вы посещаете данный веб-сайт, Вы даете согласие на использование файлов cookies.',
+		showOnce: true
+	});
+
 	// popup init
 	Popup.init('.js-open-popup');
 	MediaPopup.init('.js-open-media-popup');
