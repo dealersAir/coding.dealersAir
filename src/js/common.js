@@ -53,6 +53,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		return result[1];
 	}
-
-	console.log(new Date(0).toUTCString());
 });
