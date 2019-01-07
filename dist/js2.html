@@ -86,48 +86,56 @@
       <div class="row row_wrp">
          <div class="col-12">
             <h1 class="title">
-               RegExp
+               cookie
             </h1>
          </div>
       </div>
       <div class="article row row_wrp">
          <div class="col-12">
-<h2>Специальные символы</h2>
+Для чтения и записи куки, в JavaScript используется свойство <code>document.cookie</code>, которое содержит строку в специальном формате.
+<h2>Запись cookie</h2>
 <p>
-Список cпециальных символов: <code>[ \ ^ $ . | ? * + ( )</code>
+Записываем в свойство <code>document.cookie</code> строку, с параметрами разделенными <code>;</code>
 </p>
 <p>
-Чтоб превратить спецсимвол в обычный, его необходимо экранировать, ставим перед ним обратный слеш <code>\</code>
+<code>cookie_key=cookie_value</code> - ключ и значение куки.
 </p>
-<h2>Создание регулярного выражения</h2>
 <p>
-Регулярное выражение состоит из шаблона (pattern) и <b>необязательных</b> флагов (flags).
+<code>path=/mypath</code> - путь, по которому будет доступ к куке. Если не указать, по умолчанию принимается текущий путь и все дочерние страницы.<br>
+Как правило используется <code>path=/</code> - кука будет доступна на всех страницах сайта.
 </p>
-<pre><code>var reg = /pattern/;
-var reg = /pattern/flags;</code></pre>
 <p>
-или
+<code>domain=site.com</code> - домен или поддомен <code>domain=subdom.site.com</code>, на котором будет доступна кука. По умолчанию принимается текущий домен. Можно указать специальную маску <code>domain=.site.com</code>, тогда кука будет доступна на основном домене и всех его поддоменах.
 </p>
-<pre><code>var reg = new RegExp('pattern');
-var reg = new RegExp('pattern', 'flags');</code></pre>
+<p>
+<code>expires=Mon, 07 Jan 2019 09:03:11 GMT</code> - дата и время истечения куки в формате GMT. Если не указать, то кука будет сессионная и будет удалена после закрытия браузера.
+</p>
+<pre><code>document.cookie = 'cookie_key=cookie_value; path=/; expires=Mon, 07 Jan 2019 09:03:11 GMT';</code></pre>
+<h2>Чтение cookie</h2>
+<p>
+Все куки записаны в свойстве <code>document.cookie</code> в виде строки. Эта строка состоит из пар <code>key=value</code> разделенных точкой с запятой и пробелом<code>'; '</code>
+</p>
 <blockquote>
-<span class="att-icon">При создании регулярки через <strong>new RegExp()</strong>, символьные классы (\w, \d, \s и
-т.д.), необходимо экранировать.</span>
-<pre><code>var reg = new RegExp('\\w*');</code></pre>
+<span class="att-icon">Если никакие cookie к странице не привязаны, то в свойстве <code>document.cookie</code> находится <b>пустая строка</b>.</span>
 </blockquote>
-<h2>Флаги</h2>
 <p>
-<code>i</code> - игнорирует регистр.
+Для того, чтоб найти нужные ключ=значение, можно разбить строку по <code>'; '</code> на массив и найти нужный ключ перебирая массив, разбивая пары на подмассивы.
 </p>
+<pre><code>var cookie_array = document.cookie.split('; ');
+for (var i = 0; i < cookie_array.length; i++) {
+   var pair_array = cookie_array[i].split('=');
+
+   if (cookie_key == pair_array[0]) {
+      cookie_value = pair_array[1];
+      break;
+   }
+}</code></pre>
+<h2>Удаление cookie</h2>
 <p>
-<code>g</code> - ищет все совпадения.
+Для удаления куки достаточно установить дату в прошлом, значение (cookie_value) не важно и можно не указывать.
 </p>
-<p>
-<code>m</code> - многострочный режим. Cимволы <code>^</code> и <code>$</code> обозначают начало и конец каждой
-строки.
-</p>
-<pre><code>var reg = /pattern/igm; <code class="code-comm">// порядок флагов не имеет значения</code>
-var reg = new RegExp('pattern', 'mig'); <code class="code-comm">// порядок флагов не имеет значения</code></code></pre>
+<pre><code>document.cookie = 'cookie_key=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';</code></pre>
+
          </div>
       </div>
    </article>
