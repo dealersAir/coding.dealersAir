@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=device-width,initial-scale=1.0">
    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-   <link rel="stylesheet" href="/templates/css/style.css">
+   <link rel="stylesheet" href="/static/css/style.css">
    <title><?php echo $meta['title']; ?></title>
    <!-- favicon/ -->
    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -34,7 +34,7 @@
    <header id="header" class="header">
       <div class="row row_wrp row_col-middle header__row">
          <div class="col p-y-0">
-            <a href="/" class="header__logo"><img src="/templates/images/coding.svg" alt="coding.dealersAir"></a>
+            <a href="/" class="header__logo"><img src="/static/images/coding.svg" alt="coding.dealersAir"></a>
          </div>
          <div class="col col_grow p-y-0">
             <div class="row row_col-middle">

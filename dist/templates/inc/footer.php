@@ -27,7 +27,7 @@
 			</div>
       </div>
       <div class="col">
-			<a href="https://dealersair.com" target="_blank" title="«dealersAir» — интернет-проекты и сервисы" class="footer__logo"><img src="/templates/images/dealersair.svg" alt="dealersAir"></a>
+			<a href="https://dealersair.com" target="_blank" title="«dealersAir» — интернет-проекты и сервисы" class="footer__logo"><img src="/static/images/dealersair.svg" alt="dealersAir"></a>
 		</div>
 	</div>
 </footer>
@@ -145,7 +145,7 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/51804476" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 
-<script src="/templates/js/script.js"></script>
-<script src="/templates/js/common.js"></script>
+<script src="/static/js/script.js"></script>
+<script src="/static/js/common.js"></script>
 </body>
 </html>

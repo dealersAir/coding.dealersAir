@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 	(function initFun() {
-		if (window.innerWidth < 1200) {
-
-		}
+		if (window.innerWidth < 1200) {}
 
 		window.addEventListener('winResized', initFun);
 	})();
@@ -10,9 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	// init toggle button
 	Toggle.init('.js-toggle');
 
-	Toggle.onChange = function (tgl, state) {
-
-	}
+	Toggle.onChange = function (tgl, state) {};
 
 	// menu
 	if (window.innerWidth < 1000) {
@@ -52,7 +48,5 @@ document.addEventListener('DOMContentLoaded', function () {
 		var result = response.match(/\<div id\="source"\>([\s\S]*?)\<\/div\>/);
 
 		return result[1];
-	}
-
-	console.log(new Date(0).toUTCString());
+	};
 });

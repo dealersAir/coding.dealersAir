@@ -51,6 +51,8 @@ var modulesOn = [
 	// 'scrollpane',
 ];
 
+const dist_path = 'dist/static/';
+
 var assets = {
 	form: ['src/assets/maskinput.min.js', 'src/assets/jquery-3.1.1.min.js'],
 	slickslider: ['src/assets/slick.min.js', 'src/assets/jquery-3.1.1.min.js'],
@@ -86,7 +88,7 @@ gulp.task('include_modules', ['clean_modules_folder'], function() {
 });
 
 gulp.task('clean_js_folder', ['include_modules'], function() {
-	return del(['dist/templates/js/*']);
+	return del([dist_path +'js/*']);
 });
 
 gulp.task('dev', ['clean_js_folder'], function() {
@@ -101,12 +103,12 @@ gulp.task('dev', ['clean_js_folder'], function() {
 	
 	// copy common script
 	gulp.src(['!src/js/global.js', 'src/js/*.js'])
-	.pipe(gulp.dest('dist/templates/js'))
+	.pipe(gulp.dest(dist_path +'js'))
 	.pipe(notify('Common script had copied!'));
 	
 	// import js assets
 	gulp.src(jsAssets)
-	.pipe(gulp.dest('dist/templates/js'))
+	.pipe(gulp.dest(dist_path +'js'))
 	.pipe(notify('JS Assets had imported!'));
 	
 	// watch css
@@ -121,7 +123,7 @@ gulp.task('dev', ['clean_js_folder'], function() {
 	
 	gulp.watch(['!src/js/global.js', 'src/js/*.js'], function() {
 		gulp.src(['!src/js/global.js', 'src/js/*.js'])
-		.pipe(gulp.dest('dist/templates/js'))
+		.pipe(gulp.dest(dist_path +'js'))
 		.pipe(notify('Script had Refreshed!'));;
 	});
 	
@@ -147,7 +149,7 @@ gulp.task('svgs', function() {
 		mode: {
 			view: {
 				bust: false,
-				sprite: '../dist/templates/images/sprite.svg',
+				sprite: '../'+ dist_path +'images/sprite.svg',
 				prefix: '%%svg-%s',
 				render: {
 					scss: {dest: '../src/sass/_sprite-extends.scss'}
@@ -155,7 +157,7 @@ gulp.task('svgs', function() {
 			}
 		}
 	}))
-	.pipe(replace('\/dist\/templates\/', '/'))
+	.pipe(replace(dist_path, ''))
 	.pipe(gulp.dest('.'))
 	.pipe(notify({
 		title: 'SVG',
@@ -174,7 +176,7 @@ gulp.task('dist', function() {
 	gulp.src(['!src/js/global.js', 'src/js/*.js'])
 	.pipe(babel())
 	.on('error', notify.onError(function(err) { return err; }))
-	.pipe(gulp.dest('dist/templates/js'))
+	.pipe(gulp.dest(dist_path +'js'))
 	.pipe(notify({
 		title: 'JS',
 		message: 'Dist Common Script'
@@ -193,7 +195,7 @@ function CSS(src, dist) {
 			.pipe(concat('style.css'))
 			// .pipe(rename({suffix: '.min'}))
 			.pipe(sourcemaps.write('.'))
-			.pipe(gulp.dest('dist/templates/css'))
+			.pipe(gulp.dest(dist_path +'css'))
 			.pipe(notify({
 				title: 'CSS',
 				message: 'Dist Styles'
@@ -204,7 +206,7 @@ function CSS(src, dist) {
 			.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
 			.pipe(concat('style.css'))
 			.pipe(sourcemaps.write('.'))
-			.pipe(gulp.dest('dist/templates/css'))
+			.pipe(gulp.dest(dist_path +'css'))
 			.pipe(notify({
 				onLast: true,
 				title: 'CSS',
@@ -223,7 +225,7 @@ function JS(src, dist) {
 		.on('error', notify.onError(function(err) { return err; }))
 		.pipe(concat('script.js'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('dist/templates/js'))
+		.pipe(gulp.dest(dist_path +'js'))
 		.pipe(notify({
 			title: 'JS',
 			message: 'Dist Scripts'
@@ -233,7 +235,7 @@ function JS(src, dist) {
 		.pipe(sourcemaps.init())
 		.pipe(concat('script.js'))
 		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest('dist/templates/js'))
+		.pipe(gulp.dest(dist_path +'js'))
 		.pipe(notify({
 			onLast: true,
 			title: 'JS',
@@ -248,7 +250,7 @@ function HTML(src, dist) {
 		gulp.src(src)
 		.pipe(fileinclude())
 		.on('error', notify.onError(function(err) { return err; }))
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest(dist_path))
 		.pipe(notify({
 			title: 'HTML',
 			message: 'Dist HTML'
@@ -257,7 +259,7 @@ function HTML(src, dist) {
 		gulp.src(src)
 		.pipe(fileinclude())
 		.on('error', notify.onError(function(err) { return err; }))
-		.pipe(gulp.dest('dist'))
+		.pipe(gulp.dest(dist_path))
 		.pipe(notify({
 			onLast: true,
 			title: 'HTML',

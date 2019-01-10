@@ -1,26 +1,27 @@
 // global variables
-; var browser, ajax, animate;
+;var browser, ajax, animate;
 
-(function() {
+(function () {
 	"use strict";
 
 	// Get useragent
+
 	document.documentElement.setAttribute('data-useragent', navigator.userAgent.toLowerCase());
 
 	// Browser identify
-	browser = (function(userAgent) {
+	browser = function (userAgent) {
 		userAgent = userAgent.toLowerCase();
 
 		if (/(msie|rv:11\.0)/.test(userAgent)) {
 			return 'ie';
 		}
-	})(navigator.userAgent);
+	}(navigator.userAgent);
 
 	// Add support CustomEvent constructor for IE
 	try {
 		new CustomEvent("IE has CustomEvent, but doesn't support constructor");
 	} catch (e) {
-		window.CustomEvent = function(event, params) {
+		window.CustomEvent = function (event, params) {
 			var evt;
 
 			params = params || {
@@ -34,20 +35,20 @@
 			evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
 
 			return evt;
-		}
+		};
 
 		CustomEvent.prototype = Object.create(window.Event.prototype);
 	}
 
 	// Window Resized Event
 	var winResizedEvent = new CustomEvent('winResized'),
-	rsz = true;
+	    rsz = true;
 
-	window.addEventListener('resize', function() {
+	window.addEventListener('resize', function () {
 		if (rsz) {
 			rsz = false;
 
-			setTimeout(function() {
+			setTimeout(function () {
 				window.dispatchEvent(winResizedEvent);
 				rsz = true;
 			}, 1021);
@@ -56,7 +57,7 @@
 
 	// Closest polyfill
 	if (!Element.prototype.closest) {
-		(function(ElProto) {
+		(function (ElProto) {
 			ElProto.matches = ElProto.matches || ElProto.mozMatchesSelector || ElProto.msMatchesSelector || ElProto.oMatchesSelector || ElProto.webkitMatchesSelector;
 
 			ElProto.closest = ElProto.closest || function closest(selector) {
@@ -78,7 +79,7 @@
 	}
 
 	// Check element for hidden
-	Element.prototype.elementIsHidden = function() {
+	Element.prototype.elementIsHidden = function () {
 		var elem = this;
 
 		while (elem) {
@@ -94,10 +95,10 @@
 		}
 
 		return false;
-	}
+	};
 
 	// Ajax
-	ajax = function(options) {
+	ajax = function ajax(options) {
 		var xhr = new XMLHttpRequest();
 
 		xhr.open('POST', options.url);
@@ -105,23 +106,23 @@
 		if (typeof options.send == 'string') {
 			xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 		}
-		
-		xhr.onreadystatechange = function() {
+
+		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4 && xhr.status == 200) {
 				options.success(xhr.response);
 			} else if (xhr.readyState == 4 && xhr.status != 200) {
 				options.error(xhr.response);
 			}
-		}
+		};
 
 		xhr.send(options.send);
-	}
+	};
 
 	/*
-	Animation
-	animate(function(takes 0...1) {}, Int duration in ms[, Str easing[, Fun animation complete]]);
-	*/
-	animate = function(draw, duration, ease, complete) {
+ Animation
+ animate(function(takes 0...1) {}, Int duration in ms[, Str easing[, Fun animation complete]]);
+ */
+	animate = function animate(draw, duration, ease, complete) {
 		var start = performance.now();
 
 		requestAnimationFrame(function anim(time) {
@@ -131,7 +132,7 @@
 				timeFraction = 1;
 			}
 
-			var progress = (ease) ? easing(timeFraction, ease) : timeFraction;
+			var progress = ease ? easing(timeFraction, ease) : timeFraction;
 
 			draw(progress);
 
@@ -143,38 +144,39 @@
 				}
 			}
 		});
-	}
+	};
 
 	function easing(timeFraction, ease) {
 		switch (ease) {
 			case 'easeInQuad':
-			return quad(timeFraction);
-			
+				return quad(timeFraction);
+
 			case 'easeOutQuad':
-			return 1 - quad(1 - timeFraction);
-			
+				return 1 - quad(1 - timeFraction);
+
 			case 'easeInOutQuad':
-			if (timeFraction <= 0.5) {
-				return quad(2 * timeFraction) / 2;
-			} else {
-				return (2 - quad(2 * (1 - timeFraction))) / 2;
-			}
+				if (timeFraction <= 0.5) {
+					return quad(2 * timeFraction) / 2;
+				} else {
+					return (2 - quad(2 * (1 - timeFraction))) / 2;
+				}
 		}
 	}
 
 	function quad(timeFraction) {
-		return Math.pow(timeFraction, 2)
+		return Math.pow(timeFraction, 2);
 	}
 })();
-; var MobNav;
+;var MobNav;
 
-(function() {
+(function () {
 	"use strict";
 
 	//fix header
+
 	var headerElem = document.querySelector('.header');
 
-	window.addEventListener('scroll', function() {
+	window.addEventListener('scroll', function () {
 		if (window.pageYOffset > 21) {
 			headerElem.classList.add('header_fixed');
 		} else if (!document.body.classList.contains('popup-is-opened') && !document.body.classList.contains('mob-nav-is-opened')) {
@@ -187,12 +189,12 @@
 		options: null,
 		winScrollTop: 0,
 
-		fixBody: function(st) {
+		fixBody: function fixBody(st) {
 			if (st) {
 				this.winScrollTop = window.pageYOffset;
 
 				document.body.classList.add('mob-nav-is-opened');
-				document.body.style.top = -this.winScrollTop +'px';
+				document.body.style.top = -this.winScrollTop + 'px';
 			} else {
 				document.body.classList.remove('mob-nav-is-opened');
 
@@ -200,7 +202,7 @@
 			}
 		},
 
-		open: function(btnElem) {
+		open: function open(btnElem) {
 			var headerElem = document.getElementById(this.options.headerId);
 
 			if (!headerElem) return;
@@ -214,7 +216,7 @@
 			}
 		},
 
-		close: function() {
+		close: function close() {
 			var headerElem = document.getElementById(this.options.headerId);
 
 			if (!headerElem) return;
@@ -230,22 +232,24 @@
 			this.fixBody(false);
 		},
 
-		init: function(options) {
+		init: function init(options) {
+			var _this = this;
+
 			this.options = options;
 
-			document.addEventListener('click', (e) => {
+			document.addEventListener('click', function (e) {
 				var openElem = e.target.closest(options.openBtn),
-				closeElem = e.target.closest(options.closeBtn),
-				menuLinkElement = e.target.closest(options.menuLinkSelector);
+				    closeElem = e.target.closest(options.closeBtn),
+				    menuLinkElement = e.target.closest(options.menuLinkSelector);
 
 				if (openElem) {
 					e.preventDefault();
-					this.open(openElem);
+					_this.open(openElem);
 				} else if (closeElem) {
 					e.preventDefault();
-					this.close();
+					_this.close();
 				} else if (menuLinkElement) {
-					this.close();
+					_this.close();
 				}
 			});
 		}
@@ -256,11 +260,11 @@
 */
 var Menu;
 
-(function() {
+(function () {
 	"use strict";
 
 	Menu = {
-		toggle: function(elem, elementStr, subMenuStr) {
+		toggle: function toggle(elem, elementStr, subMenuStr) {
 			var subMenuElem = elem.querySelector(subMenuStr);
 
 			if (!subMenuElem) {
@@ -273,29 +277,31 @@ var Menu;
 				elem.classList.remove('active');
 			} else {
 				var mainElem = elem.closest('.menu'),
-				itemElements = mainElem.querySelectorAll(elementStr),
-				subMenuElements = mainElem.querySelectorAll(subMenuStr);
+				    itemElements = mainElem.querySelectorAll(elementStr),
+				    subMenuElements = mainElem.querySelectorAll(subMenuStr);
 
 				for (var i = 0; i < itemElements.length; i++) {
 					itemElements[i].classList.remove('accord__button_active');
 					subMenuElements[i].style.height = 0;
 				}
 
-				subMenuElem.style.height = subMenuElem.scrollHeight +'px';
+				subMenuElem.style.height = subMenuElem.scrollHeight + 'px';
 
 				elem.classList.add('active');
 			}
 		},
 
-		init: function(elementStr, subMenuStr) {
-			document.addEventListener('click', (e) => {
+		init: function init(elementStr, subMenuStr) {
+			var _this = this;
+
+			document.addEventListener('click', function (e) {
 				var elem = e.target.closest(elementStr);
 
 				if (!elem) {
 					return;
 				}
 
-				this.toggle(elem, elementStr, subMenuStr);
+				_this.toggle(elem, elementStr, subMenuStr);
 			});
 		}
 	};
@@ -308,29 +314,29 @@ Toggle.onChange = function(toggleElem, state) {
 }
 */
 
-; var Toggle;
+;var Toggle;
 
-(function() {
+(function () {
 	"use strict";
-	
+
 	Toggle = {
 		toggledClass: 'toggled',
 		onChange: null,
-		
-		target: function(toggleElem, state) {
+
+		target: function target(toggleElem, state) {
 			var targetElements = document.querySelectorAll(toggleElem.getAttribute('data-target-elements'));
-			
+
 			if (!targetElements.length) return;
-			
+
 			if (state) {
 				for (var i = 0; i < targetElements.length; i++) {
 					targetElements[i].classList.add(this.toggledClass);
 				}
-				
+
 				//dependence elements
 				if (toggleElem.hasAttribute('data-dependence-target-elements')) {
 					var dependenceTargetElements = document.querySelectorAll(toggleElem.getAttribute('data-dependence-target-elements'));
-					
+
 					for (var i = 0; i < dependenceTargetElements.length; i++) {
 						dependenceTargetElements[i].classList.remove(this.toggledClass);
 					}
@@ -341,71 +347,73 @@ Toggle.onChange = function(toggleElem, state) {
 				}
 			}
 		},
-		
-		toggle: function(toggleElem, off) {
+
+		toggle: function toggle(toggleElem, off) {
 			var state;
-			
+
 			if (toggleElem.classList.contains(this.toggledClass)) {
 				toggleElem.classList.remove(this.toggledClass);
-				
+
 				state = false;
-				
+
 				if (toggleElem.hasAttribute('data-first-text')) {
 					toggleElem.innerHTML = toggleElem.getAttribute('data-first-text');
 				}
 			} else if (!off) {
 				toggleElem.classList.add(this.toggledClass);
-				
+
 				state = true;
-				
+
 				if (toggleElem.hasAttribute('data-second-text')) {
 					toggleElem.setAttribute('data-first-text', toggleElem.innerHTML);
-					
+
 					toggleElem.innerHTML = toggleElem.getAttribute('data-second-text');
 				}
 			}
-			
+
 			//target
 			if (toggleElem.hasAttribute('data-target-elements')) {
 				this.target(toggleElem, state);
 			}
-			
+
 			//call onChange
 			if (this.onChange) {
 				this.onChange(toggleElem, state);
 			}
 		},
-		
-		onDocClickOff: function (e, onDocClickOffSelector) {
-			var toggleElements = document.querySelectorAll(onDocClickOffSelector + '.' +this.toggledClass);
-			
+
+		onDocClickOff: function onDocClickOff(e, onDocClickOffSelector) {
+			var toggleElements = document.querySelectorAll(onDocClickOffSelector + '.' + this.toggledClass);
+
 			for (var i = 0; i < toggleElements.length; i++) {
 				var elem = toggleElements[i];
-				
+
 				if (elem.hasAttribute('data-target-elements')) {
 					var targetSelectors = elem.getAttribute('data-target-elements');
-					
+
 					if (!e.target.closest(targetSelectors)) {
 						this.toggle(elem, true);
 					}
 				}
 			}
 		},
-		
-		init: function(toggleSelector, onDocClickOffSelector, toggledClass) {
+
+		init: function init(toggleSelector, onDocClickOffSelector, toggledClass) {
+			var _this = this;
+
 			if (toggledClass) {
 				this.toggledClass = toggledClass;
 			}
-			
-			document.addEventListener('click', (e) => {
+
+			document.addEventListener('click', function (e) {
 				var toggleElem = e.target.closest(toggleSelector);
-				
+
 				if (toggleElem) {
 					e.preventDefault();
-					
-					this.toggle(toggleElem);
+
+					_this.toggle(toggleElem);
 				} else {
-					this.onDocClickOff(e, onDocClickOffSelector);
+					_this.onDocClickOff(e, onDocClickOffSelector);
 				}
 			});
 		}
@@ -413,16 +421,17 @@ Toggle.onChange = function(toggleElem, state) {
 })();
 var Popup, MediaPopup;
 
-(function() {
+(function () {
 	'use strict';
 
 	//popup core
+
 	Popup = {
 		winScrollTop: 0,
 		onClose: null,
 		headerSelector: '.header',
 
-		fixBody: function(st) {
+		fixBody: function fixBody(st) {
 			var headerElem = document.querySelector(this.headerSelector);
 
 			if (st && !document.body.classList.contains('popup-is-opened')) {
@@ -433,24 +442,24 @@ var Popup, MediaPopup;
 				document.body.classList.add('popup-is-opened');
 
 				if (headerElem) {
-					headerElem.style.right = offset +'px';
+					headerElem.style.right = offset + 'px';
 				}
 
-				document.body.style.right = offset +'px';
+				document.body.style.right = offset + 'px';
 
-				document.body.style.top = (-this.winScrollTop) +'px';
+				document.body.style.top = -this.winScrollTop + 'px';
 			} else if (!st) {
 				if (headerElem) {
 					headerElem.style.right = '';
 				}
-				
+
 				document.body.classList.remove('popup-is-opened');
 
 				window.scrollTo(0, this.winScrollTop);
 			}
 		},
 
-		open: function(elementStr, callback) {
+		open: function open(elementStr, callback) {
 			var elem = document.querySelector(elementStr);
 
 			if (!elem || !elem.classList.contains('popup__window')) {
@@ -460,7 +469,7 @@ var Popup, MediaPopup;
 			this.close();
 
 			var elemParent = elem.parentElement;
-			
+
 			elemParent.classList.add('popup_visible');
 
 			elem.classList.add('popup__window_visible');
@@ -474,13 +483,13 @@ var Popup, MediaPopup;
 			return elem;
 		},
 
-		message: function(elementStr, msg, callback) {
+		message: function message(elementStr, msg, callback) {
 			var elem = this.open(elementStr, callback);
 
-			elem.querySelector('.popup__inner').innerHTML = '<div class="popup__message">'+ msg +'</div>';
+			elem.querySelector('.popup__inner').innerHTML = '<div class="popup__message">' + msg + '</div>';
 		},
 
-		close: function() {
+		close: function close() {
 			var elements = document.querySelectorAll('.popup__window');
 
 			if (!elements.length) {
@@ -504,19 +513,21 @@ var Popup, MediaPopup;
 			}
 		},
 
-		init: function(elementStr) {
-			document.addEventListener('click', (e) => {
+		init: function init(elementStr) {
+			var _this = this;
+
+			document.addEventListener('click', function (e) {
 				var element = e.target.closest(elementStr),
-				closeElem = e.target.closest('.js-popup-close');
+				    closeElem = e.target.closest('.js-popup-close');
 
 				if (element) {
 					e.preventDefault();
 
-					this.open(element.getAttribute('data-popup'));
-				} else if (closeElem || (!e.target.closest('.popup__window') && e.target.closest('.popup'))) {
-					this.fixBody(false);
+					_this.open(element.getAttribute('data-popup'));
+				} else if (closeElem || !e.target.closest('.popup__window') && e.target.closest('.popup')) {
+					_this.fixBody(false);
 
-					this.close();
+					_this.close();
 				}
 			});
 
@@ -528,35 +539,34 @@ var Popup, MediaPopup;
 
 	//popup media
 	MediaPopup = {
-		image: function(args) {
+		image: function image(args) {
 			var elemPopup = Popup.open(args.popupStr),
-			elemImg = elemPopup.querySelector('.popup-media__image');
+			    elemImg = elemPopup.querySelector('.popup-media__image');
 
-			Popup.onClose = function() {
+			Popup.onClose = function () {
 				elemImg.src = '#';
-				elemImg.classList.remove('popup-media__image_visible'); 
-			}
+				elemImg.classList.remove('popup-media__image_visible');
+			};
 
 			elemImg.src = args.href;
 			elemImg.classList.add('popup-media__image_visible');
-			
 		},
 
-		video: function(args) {
+		video: function video(args) {},
 
-		},
-
-		next: function(elem) {
+		next: function next(elem) {
 			if (!elem.hasAttribute('data-group')) {
 				return;
 			}
 
 			var group = elem.getAttribute('data-group'),
-			index = [].slice.call(document.querySelectorAll('[data-group="'+ group +'"]')).indexOf(elem);
+			    index = [].slice.call(document.querySelectorAll('[data-group="' + group + '"]')).indexOf(elem);
 		},
 
-		init: function(elementStr) {
-			document.addEventListener('click', (e) => {
+		init: function init(elementStr) {
+			var _this2 = this;
+
+			document.addEventListener('click', function (e) {
 				var element = e.target.closest(elementStr);
 
 				if (!element) {
@@ -566,7 +576,7 @@ var Popup, MediaPopup;
 				e.preventDefault();
 
 				var type = element.getAttribute('data-type'),
-				args = {
+				    args = {
 					href: element.href,
 					caption: element.getAttribute('data-caption'),
 					group: element.getAttribute('data-group'),
@@ -574,19 +584,16 @@ var Popup, MediaPopup;
 				};
 
 				if (type == 'image') {
-					this.image(args);
+					_this2.image(args);
 				} else if (type == 'video') {
-					this.video(args);
+					_this2.video(args);
 				}
 
-				this.next(element);
+				_this2.next(element);
 			});
 		}
 	};
-
 })();
-
-
 
 /*var pPopup = {
 	closeCallback: function() {},
@@ -773,7 +780,6 @@ var Popup, MediaPopup;
 
 };*/
 
-
 /*$(document).ready(function() {
 	$('body').on('click', '.js-open-popup', function () {
 		Popup.show($(this).attr('data-popup'));
@@ -844,15 +850,15 @@ Anchor.init(Str anchor selector[, Int duration ms[, Int shift px]]);
 
 var Anchor;
 
-(function() {
+(function () {
 	"use strict";
 
 	Anchor = {
 		duration: 1000,
 		shift: 0,
 
-		scroll: function(anchorId, e) {
-			var anchorSectionElem = document.getElementById(anchorId +'-anchor');
+		scroll: function scroll(anchorId, e) {
+			var anchorSectionElem = document.getElementById(anchorId + '-anchor');
 
 			if (!anchorSectionElem) {
 				return;
@@ -863,14 +869,16 @@ var Anchor;
 			}
 
 			var scrollTo = anchorSectionElem.getBoundingClientRect().top + window.pageYOffset,
-			scrollTo = scrollTo - this.shift;
+			    scrollTo = scrollTo - this.shift;
 
-			animate(function(progress) {
-				window.scrollTo(0, ((scrollTo * progress) + ((1 - progress) * window.pageYOffset)));
+			animate(function (progress) {
+				window.scrollTo(0, scrollTo * progress + (1 - progress) * window.pageYOffset);
 			}, this.duration, 'easeInOutQuad');
 		},
 
-		init: function(elementStr, duration, shift) {
+		init: function init(elementStr, duration, shift) {
+			var _this = this;
+
 			if (duration) {
 				this.duration = duration;
 			}
@@ -880,18 +888,18 @@ var Anchor;
 			}
 
 			//click anchor
-			document.addEventListener('click', (e) => {
+			document.addEventListener('click', function (e) {
 				var elem = e.target.closest(elementStr);
 
 				if (elem) {
-					this.scroll(elem.getAttribute('href').split('#')[1], e);
+					_this.scroll(elem.getAttribute('href').split('#')[1], e);
 				}
 			});
 
 			//hash anchor
 			if (window.location.hash) {
-				window.addEventListener('load', () => {
-					this.scroll(window.location.hash.split('#')[1]);
+				window.addEventListener('load', function () {
+					_this.scroll(window.location.hash.split('#')[1]);
 				});
 			}
 		}
@@ -905,20 +913,20 @@ new Alert({
 });
 */
 
-; var Alert;
+;var Alert;
 
-(function() {
+(function () {
 	'use strict';
 
 	var alertIndex = 0;
 
-	Alert = function (opt) {
+	Alert = function Alert(opt) {
 		opt = opt || {};
 
-		var alertId = 'alert-id-'+ (alertIndex++);
+		var alertId = 'alert-id-' + alertIndex++;
 
 		if (opt.showOnce) {
-			let hiddenAlert = window.localStorage.getItem('notShowAlert='+ alertId);
+			var hiddenAlert = window.localStorage.getItem('notShowAlert=' + alertId);
 
 			if (hiddenAlert !== null && hiddenAlert === 'true') {
 				return false;
@@ -939,11 +947,11 @@ new Alert({
 		if (opt.position == 'top') {
 			alertElem.classList.add('alert_top');
 		}
-		
+
 		// set content
 		this.setContent = function (content) {
 			alertElem.querySelector('div').innerHTML = content;
-		}
+		};
 
 		if (opt.content) {
 			this.setContent(opt.content);
@@ -951,54 +959,56 @@ new Alert({
 
 		// hide permanently
 		function hidePermanently() {
-			window.localStorage.setItem('notShowAlert='+ alertId, 'true');
+			window.localStorage.setItem('notShowAlert=' + alertId, 'true');
 		}
 
 		// hide
 		function hide() {
 			alertElem.classList.add('alert_hidden');
-			
+
 			if (opt.showOnce) {
 				hidePermanently();
 			}
 		}
 
 		alertElem.querySelector('.alert-close-btn').addEventListener('click', hide);
-	}
+	};
 })();
-; var GetContentAjax;
+;var GetContentAjax;
 
-(function() {
+(function () {
 	"use strict";
 
-	GetContentAjax = function(options) {
+	GetContentAjax = function GetContentAjax(options) {
+		var _this = this;
+
 		if (!document.querySelector(options.eventBtn)) {
 			return;
 		}
 
 		this.output = null;
 
-		var getContent = (eventBtnElem) => {
+		var getContent = function getContent(eventBtnElem) {
 			var outputDivElem = document.querySelector(options.outputDiv);
 
 			ajax({
 				url: options.sourceFile,
 				send: eventBtnElem.getAttribute('data-send'),
-				success: (response) => {
-					if (this.output === null) {
+				success: function success(response) {
+					if (_this.output === null) {
 						outputDivElem.innerHTML = response;
 					} else {
-						outputDivElem.innerHTML = this.output(response);
+						outputDivElem.innerHTML = _this.output(response);
 					}
 				},
-				error: (response) => {
+				error: function error(response) {
 					console.log(response);
 				}
 			});
-		}
+		};
 
 		if (options.event == 'click') {
-			document.addEventListener('click', (e) => {
+			document.addEventListener('click', function (e) {
 				var eventBtnElem = e.target.closest(options.eventBtn);
 
 				if (eventBtnElem) {
@@ -1008,9 +1018,8 @@ new Alert({
 				}
 			});
 		}
-	}
+	};
 })();
-
 
 /*var Ajax = {
 	take: function(url,data,id,fun) {
