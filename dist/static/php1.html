@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-	<link rel="stylesheet" href="/templates/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
 	<title>dealersAir</title>
 	<!--favicons/-->
 	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
@@ -107,9 +107,30 @@ $request -> execute(array('column_value'));</code></pre>
 Получаем строки таблицы
 </p>
 <pre><code>$result = $request -> fetch(); <code class="code-comm">// одна строка</code>
-$result = $request -> fetchAll();  <code class="code-comm">// все строки</code></code></pre>
+$result = $request -> fetchAll(); <code class="code-comm">// все строки</code></code></pre>
+<h3>Формат данных</h3>
 <p>
-По умолчанию, будет возвращен массив, с индексами, которые соответствуют именам столбцов, и дубликат значений с числовыми индексами.
+Необходимо передать в метод fetch параметр fetch_style, по умолчанию - <code>PDO::FETCH_BOTH</code>
+</p>
+<pre><code>$result = $request -> fetch($fetch_style);
+$result = $request -> fetchAll($fetch_style);</code></pre>
+<p>
+Часто используемые параметры fetch_style:
+</p>
+<p>
+<code>PDO::FETCH_ASSOC</code> - возвращает массив, индексированный именами столбцов результирующего набора
+</p>
+<p>
+<code>PDO::FETCH_BOTH</code> (по умолчанию) - возвращает массив, индексированный именами столбцов результирующего набора, а также их номерами (начиная с 0).
+</p>
+<p>
+<code>PDO::FETCH_LAZY</code> - комбинирует PDO::FETCH_BOTH и PDO::FETCH_OBJ, создавая новый объект со свойствами, соответствующими именам столбцов результирующего набора.
+</p>
+<p>
+<code>PDO::FETCH_NUM</code> - возвращает массив, индексированный номерами столбцов (начиная с 0).
+</p>
+<p>
+<code>PDO::FETCH_OBJ</code> - создает анонимный объект со свойствами, соответствующими именам столбцов результирующего набора.
 </p>
 <h2>Запись в БД</h2>
 <pre><code>$request = $db -> prepare('INSERT INTO table_name (column_name_1, column_name_2) VALUES (:column_name_1, :column_name_2)');
@@ -195,8 +216,8 @@ $request -> execute(array('column_value_1', 'column_value_2', 'column_value'));<
 </div>
 <!--/POPUPs-->
 
-<script src="/templates/js/script.js"></script>
-<script src="/templates/js/common.js"></script>
+<script src="js/script.js"></script>
+<script src="js/common.js"></script>
 
 </body>
 </html>

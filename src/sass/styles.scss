@@ -90,6 +90,12 @@ ol.list{
 		margin: em(45,22) 0 em(30,22);
 		@include fch(t);
 	}
+	h3{
+		font-size: 18px;
+		font-weight: 700;
+		margin: em(45,22) 0 em(30,22);
+		@include fch(t);
+	}
 	p{
 		line-height: 1.45;
 		margin-top: em(25);
@@ -104,7 +110,7 @@ ol.list{
 		overflow: auto;
 	}
 	code{
-		padding: 3px 7px;
+		padding: 1px 7px;
 		background: $oe2;
 		&.code-comm{
 			padding: 0;

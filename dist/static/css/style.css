@@ -587,6 +587,10 @@ ol.list li:before { counter-increment: listCounter; content: counter(listCounter
 
 .article h2:first-child { margin-top: 0 !important; }
 
+.article h3 { font-size: 18px; font-weight: 700; margin: 2.04545em 0 1.36364em; }
+
+.article h3:first-child { margin-top: 0 !important; }
+
 .article p { line-height: 1.45; margin-top: 1.5625em; }
 
 .article p:first-child { margin-top: 0 !important; }
@@ -595,7 +599,7 @@ ol.list li:before { counter-increment: listCounter; content: counter(listCounter
 
 .article pre:first-child { margin-top: 0 !important; }
 
-.article code { padding: 3px 7px; background: #FFE0B3; }
+.article code { padding: 1px 7px; background: #FFE0B3; }
 
 .article code.code-comm { padding: 0; color: #BFA072; }
 

@@ -31,9 +31,30 @@ $request -> execute(array('column_value'));</code></pre>
 Получаем строки таблицы
 </p>
 <pre><code>$result = $request -> fetch(); <code class="code-comm">// одна строка</code>
-$result = $request -> fetchAll();  <code class="code-comm">// все строки</code></code></pre>
+$result = $request -> fetchAll(); <code class="code-comm">// все строки</code></code></pre>
+<h3>Формат данных</h3>
 <p>
-По умолчанию, будет возвращен массив, с индексами, которые соответствуют именам столбцов, и дубликат значений с числовыми индексами.
+Необходимо передать в метод fetch параметр fetch_style, по умолчанию - <code>PDO::FETCH_BOTH</code>
+</p>
+<pre><code>$result = $request -> fetch($fetch_style);
+$result = $request -> fetchAll($fetch_style);</code></pre>
+<p>
+Часто используемые параметры fetch_style:
+</p>
+<p>
+<code>PDO::FETCH_ASSOC</code> - возвращает массив, индексированный именами столбцов результирующего набора
+</p>
+<p>
+<code>PDO::FETCH_BOTH</code> (по умолчанию) - возвращает массив, индексированный именами столбцов результирующего набора, а также их номерами (начиная с 0).
+</p>
+<p>
+<code>PDO::FETCH_LAZY</code> - комбинирует PDO::FETCH_BOTH и PDO::FETCH_OBJ, создавая новый объект со свойствами, соответствующими именам столбцов результирующего набора.
+</p>
+<p>
+<code>PDO::FETCH_NUM</code> - возвращает массив, индексированный номерами столбцов (начиная с 0).
+</p>
+<p>
+<code>PDO::FETCH_OBJ</code> - создает анонимный объект со свойствами, соответствующими именам столбцов результирующего набора.
 </p>
 <h2>Запись в БД</h2>
 <pre><code>$request = $db -> prepare('INSERT INTO table_name (column_name_1, column_name_2) VALUES (:column_name_1, :column_name_2)');
