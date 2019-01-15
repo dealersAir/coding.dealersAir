@@ -1,6 +1,6 @@
 <?php
 header('HTTP/1.0 404 Not Found');
-$meta = array('title' => '404 Страница не найдена');
+$meta = array('title' => '404 Страница не найдена', 'description' => 'Страница не существует или была перемещена. Воспользуйтесь меню или поиском по сайту');
 include $_SERVER['DOCUMENT_ROOT'] . '/templates/inc/header.php';
 ?>
 

@@ -1,9 +1,12 @@
 <?php
-$meta = array('title' => 'Шпаргалка программиста. Решение практических задач в программировании');
+$meta = array(
+   'title' => 'Шпаргалка программиста. Решение практических задач в программировании',
+   'description' => 'Шпаргалка для программистов и решение практических задач в программировании'
+);
 include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
 ?>
 
-<!--MAIN/-->
+<!--MAIN/--> 
 <main class="main">
    <div class="section">
       <article class="row row_wrp">
@@ -12,15 +15,15 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
          </div>
          <div class="article col-12">
             <?php 
-            foreach ($home->getAllCategories() as $cat) {
-               $posts = $home->getPosts($cat->id);
+            foreach ($home -> getAllCategories() as $cat) {
+               $posts = $home -> getPosts($cat -> id);
 
                if (!empty($posts)) {
             ?>
-               <h2><?php echo $cat->title; ?></h2>
+               <h2><?php echo $cat -> title; ?></h2>
                <ul class="list">
                   <?php foreach ($posts as $post) { ?>
-                  <li><a href="<?php echo $post->url; ?>" class="link"><?php echo $post->title; ?></a></li>
+                  <li><a href="<?php echo $post -> url; ?>" class="link"><?php echo $post -> title; ?></a></li>
                   <?php } ?>
                </ul>
             <?php } } ?>
@@ -28,7 +31,7 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
       </article>
    </div>
 </main>
-<!--/MAIN-->
+<!--/MAIN--> 
 
 <?php
 include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/footer.php';

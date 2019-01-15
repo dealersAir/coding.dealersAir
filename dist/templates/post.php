@@ -1,5 +1,5 @@
 <?php
-$meta = array('title' => $content->meta_title);
+$meta = array('title' => $content -> meta_title, 'description' => $content -> meta_description);
 include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
 ?>
 
@@ -8,12 +8,12 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
    <article class="section">
       <div class="row row_wrp">
          <div class="col-12">
-            <h1 class="title"><?php echo $content->title; ?></h1>
+            <h1 class="title"><?php echo $content -> title; ?></h1>
          </div>
       </div>
       <div class="article row row_wrp">
          <div class="col-12">
-            <?php echo $content->text; ?>
+            <?php echo $content -> text; ?>
          </div>
       </div>
    </article>
