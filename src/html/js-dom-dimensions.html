@@ -1,0 +1,58 @@
+@@include('_head.html', {"title": "dealersAir"})
+
+<!--HEADER/-->
+@@include('../modules/header/header.html', {"menu_item_current": "", "prefix":""})
+<!--/HEADER-->
+
+<!--MAIN/-->
+<main class="main">
+   <article class="section">
+      <div class="row row_wrp">
+         <div class="col-12">
+            <h1 class="title">
+               dom dimensions
+            </h1>
+         </div>
+      </div>
+      <div class="article row row_wrp">
+         <div class="col-12">
+<p>
+Все размеры элемента на странице доступны в свойствах его объекта и представлены в <b>пикселях</b>, тип <i>integer</i>, тоесть без единиц измерения в конце.
+</p>
+<h2>Внешняя ширина и высота</h2>
+<p>
+Внешняя ширина и высота элемента, <b>включая рамку <i>border</i></b>, доступны в свойствах <code>offsetWidth</code> и <code>offsetHeight</code>.
+</p>
+<pre><code>var oWidth = elem.offsetWidth;
+var oHeight = elem.offsetHeight;</code></pre>
+<blockquote>
+<span class="att-icon">Свойства <code>offsetWidth</code> и <code>offsetHeight</code> доступны только для чтения. Чтоб изменить размеры элемента - используем свойство <b>style</b>.</span>
+<pre><code>elem.style.width = 100 +'px';
+elem.style.height = 100 +'px';</code></pre>
+</blockquote>
+<h2>Внутренняя ширина и высота</h2>
+<p>
+Внутренняя ширина и высота элемента, <b>включая <i>padding</i></b>, но <b>не включая <i>полосу прокрутки</i> и рамку <i>border</i></b>, доступны в свойствах <code>clientWidth</code> и <code>clientHeight</code>. <b>Так же не учитывается прокручеваемая область.</b>
+</p>
+<pre><code>var iWidth = elem.clientWidth;
+var iHeight = elem.clientHeight;</code></pre>
+<h2>Внутренняя ширина и высота с учетом прокрутки</h2>
+<p>
+Внутренняя ширина и высота элемента с учетом прокручеваемой области, <b>включая <i>padding</i></b>, но <b>не включая <i>полосу прокрутки</i> и рамку <i>border</i></b>, доступны в свойствах <code>scrollWidth</code> и <code>scrollHeight</code>.
+</p>
+<pre><code>var sWidth = elem.scrollWidth;
+var sHeight = elem.scrollHeight;</code></pre>
+
+
+
+         </div>
+      </div>
+   </article>
+</main>
+<!--/MAIN-->
+
+@@include('_javascript.html')
+
+</body>
+
+</html>
