@@ -7,7 +7,7 @@
    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
    <link rel="stylesheet" href="/static/css/style.css">
    <link rel="canonical" href="https://coding.dealersair.com/<?php echo $content -> url; ?>">
-   <title><?php echo $meta['title']; ?></title>
+   <title><?php echo $meta['title']; ?> — Dealers Air Coding</title>
    <meta name="description" content="<?php echo $meta['description']; ?>">
    <!-- favicon/ -->
    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">

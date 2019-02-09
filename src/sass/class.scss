@@ -1,5 +1,15 @@
 @import "variables";
 
+/* text weight */
+.bold{
+	font-weight: 700;
+}
+
+/* text style */
+.italic{
+	font-style: italic;
+}
+
 /*text color*/
 .c-red{
 	color: $rd !important;

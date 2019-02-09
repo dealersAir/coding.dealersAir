@@ -86,39 +86,25 @@
       <div class="row row_wrp">
          <div class="col-12">
             <h1 class="title">
-               dom dimensions
+               RegExp
             </h1>
          </div>
       </div>
       <div class="article row row_wrp">
          <div class="col-12">
-<p>
-Все размеры элемента на странице доступны в свойствах его объекта и представлены в <span class="bold">пикселях</span>, тип <i>integer</i>, тоесть без единиц измерения в конце.
-</p>
-<h2>Внешняя ширина и высота</h2>
-<p>
-Внешняя ширина и высота элемента, <span class="bold">включая рамку <i>border</i></span>, доступны в свойствах <code>offsetWidth</code> и <code>offsetHeight</code>.
-</p>
-<pre><code>var oWidth = elem.offsetWidth;
-var oHeight = elem.offsetHeight;</code></pre>
-<blockquote>
-<span class="att-icon">Свойства <code>offsetWidth</code> и <code>offsetHeight</code> доступны только для чтения. Чтоб изменить размеры элемента - используем свойство <span class="bold">style</span>.</span>
-<pre><code>elem.style.width = 100 +'px';
-elem.style.height = 100 +'px';</code></pre>
-</blockquote>
-<h2>Внутренняя ширина и высота</h2>
-<p>
-Внутренняя ширина и высота элемента, <span class="bold">включая <i>padding</i></span>, но <span class="bold">не включая <i>полосу прокрутки</i> и рамку <i>border</i></span>, доступны в свойствах <code>clientWidth</code> и <code>clientHeight</code>. <span class="bold">Так же не учитывается прокручеваемая область.</span>
-</p>
-<pre><code>var iWidth = elem.clientWidth;
-var iHeight = elem.clientHeight;</code></pre>
-<h2>Внутренняя ширина и высота с учетом прокрутки</h2>
-<p>
-Внутренняя ширина и высота элемента с учетом прокручеваемой области, <span class="bold">включая <i>padding</i></span>, но <span class="bold">не включая <i>полосу прокрутки</i> и рамку <i>border</i></span>, доступны в свойствах <code>scrollWidth</code> и <code>scrollHeight</code>.
-</p>
-<pre><code>var sWidth = elem.scrollWidth;
-var sHeight = elem.scrollHeight;</code></pre>
 
+<pre><code>button.onclick = function(){
+setTimeout(function(){
+var n = document.querySelector('.new');
+n.innerHTML = '<span style="transition: 0.2s;">2</span><span style="transition: 0.2s;">1</span>';
+setTimeout(function(){
+n.children[0].style.bottom = '0px';
+}, 200);
+setTimeout(function(){
+n.children[1].style.bottom = '0px';
+}, 400);
+},300);
+}</code></pre>
 
 
          </div>

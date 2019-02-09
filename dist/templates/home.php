@@ -1,6 +1,6 @@
 <?php
 $meta = array(
-   'title' => 'Шпаргалка программиста. Решение практических задач в программировании',
+   'title' => 'Шпаргалка программиста',
    'description' => 'Шпаргалка для программистов и решение практических задач в программировании'
 );
 include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
@@ -11,7 +11,7 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
    <div class="section">
       <article class="row row_wrp">
          <div class="col-12">
-            <h1 class="title">Шпаргалка программиста, решение практических задач</h1>
+            <h1 class="title">Шпаргалка программиста — Dealers Air Coding</h1>
          </div>
          <div class="article col-12">
             <?php 
