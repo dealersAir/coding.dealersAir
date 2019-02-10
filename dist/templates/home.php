@@ -23,7 +23,7 @@ include $_SERVER['DOCUMENT_ROOT'] .'/templates/inc/header.php';
                <h2><?php echo $cat -> title; ?></h2>
                <ul class="list">
                   <?php foreach ($posts as $post) { ?>
-                  <li><a href="<?php echo $post -> url; ?>" class="link"><?php echo $post -> title; ?></a></li>
+                  <li><a href="<?php echo $post -> url; ?>" title="<?php echo $post -> title; ?>" class="link"><?php echo $post -> link_name; ?></a></li>
                   <?php } ?>
                </ul>
             <?php } } ?>
