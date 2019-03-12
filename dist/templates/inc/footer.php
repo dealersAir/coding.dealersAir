@@ -15,7 +15,7 @@
 	<div class="row row_wrp">
 		<div class="col-12">
 			<div class="footer__txt">
-				Шпаргалка программиста — Dealers Air Coding
+				Шпаргалка программиста. Решение практических задач в программировании.
 			</div>
       </div>
 	</div>
