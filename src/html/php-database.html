@@ -74,6 +74,9 @@ $request -> execute(array(
 <h2>Обновление строки</h2>
 <pre><code>$request = $db -> prepare('UPDATE table_name SET column_name_1=?, column_name_2=? WHERE column_name=?');
 $request -> execute(array('column_value_1', 'column_value_2', 'column_value'));</code></pre>
+<h2>Удаление всех данных из таблицы</h2>
+<pre><code>$erase_table = $db -> prepare('TRUNCATE TABLE table_name');
+$erase_table -> execute();</code></pre>
          </div>
       </div>
    </article>
