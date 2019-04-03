@@ -13,6 +13,9 @@ function loadClasses($class_name) {
 
 spl_autoload_register('loadClasses');
 
+require_once $_SERVER['DOCUMENT_ROOT'] .'/set-dair-cookie.php';
+set_dair_cookie('coding');
+
 // get content
 if (!empty($_GET['route'])) {
 	$url = trim(htmlspecialchars(strip_tags($_GET['route'])));
