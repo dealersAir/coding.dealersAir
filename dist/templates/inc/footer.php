@@ -76,37 +76,6 @@
 		</div>
 	</div>
 
-	<!--Media Popup/-->
-	<div id="media-popup" class="popup-media popup__window">
-		<button class="js-popup-close popup-close-btn"></button>
-		<div class="popup__inner">
-
-			<div class="popup-media__box middle">
-
-				<img src="#" class="popup-media__image middle__img" alt="photo">
-
-				<div class="popup-media__video">
-					<a href="#" class="popup-media__play"></a>
-					<iframe src="" class="popup-media__iframe" allowfullscreen></iframe>
-				</div>
-				
-				<button class="popup-media__arr popup-media__arr_l" data-dir="prev"></button>
-				<button class="popup-media__arr popup-media__arr_r" data-dir="next"></button>
-				
-			</div>
-			
-			<div class="popup-media__bar row-col-mid">
-				<div class="popup-media__bar-date popup-media__data-0 col vw1000-col-12">
-					<!--data string 1-->
-				</div>
-				<div class="popup-media__bar-tit popup-media__data-1 col vw1000-col-12">
-					<!--data string 2-->
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--/Media Popup-->
-
 	<!--Message Popup/-->
 	<div id="message-popup" class="popup-message popup__window">
 		<button class="js-popup-close popup-close-btn"></button>

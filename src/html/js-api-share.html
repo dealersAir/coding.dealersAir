@@ -1,0 +1,70 @@
+@@include('_head.html', {"title": "dealersAir"})
+
+<!--HEADER/-->
+@@include('../modules/header/header.html', {"menu_item_current": "", "prefix":""})
+<!--/HEADER-->
+
+<!--MAIN/-->
+<main class="main">
+   <article class="section">
+      <div class="row row_wrp">
+         <div class="col-12">
+            <h1 class="title">
+               js api share
+            </h1>
+         </div>
+      </div>
+      <div class="article row row_wrp">
+         <div class="col-12">
+<p>
+Чтоб отловить событие, когда посетитель поделился ссылкой в социальных сетях, он же шаринг — будем использовать api. К сожелению, не все соцсети дают такую возможность. Из всех сетей, с которыми я работал на данный момент, только facebook и однокласники позволяют это сделать.
+</p>
+<h2>Facebook share callback</h2>
+<p>
+Нам понадобится создать приложение в кабинете для разработчиков <a href="https://developers.facebook.com/apps" target="_blank" rel="nofollow">developers.facebook.com/apps</a>. Указывем в настройках домен, на котором будем использовать api и копируем api id.
+</p>
+<p>
+Подключаем js sdk, <code>API_ID</code> - api id нашего приложения.
+</p>
+<pre><code>window.fbAsyncInit = function () {
+   FB.init({
+      appId: 'API_ID',
+      autoLogAppEvents: true,
+      xfbml: true,
+      version: 'v3.3'
+   });
+}
+
+(function (d, s, id) {
+   var js, fjs = d.getElementsByTagName(s)[0];
+   if (d.getElementById(id)) { return; }
+   js = d.createElement(s); js.id = id;
+   js.src = "https://connect.facebook.net/en_US/sdk.js";
+   fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</code></pre>
+<p>
+Для вызова окна поделиться — используем метод <code>Fb.ui()</code>.<br> <code>HREF</code> — url страницы, которой нужно поделиться.<br> Когда посетитель сделает публикацию — метод вернет <code>response</code> <b>не равен</b> <i>undefined</i>.
+</p>
+<pre><code>FB.ui({
+   method: 'share',
+   href: 'HREF',
+}, function (response) {
+   if (response != undefined) {
+      console.log('shared'); <code class="code-comm">// пост опубликован</code>
+   }
+});</code></pre>
+<p>
+Для передачи параметров: тайтл, описание, изображение и т.п., используем opengraph мета теги.
+</p>
+
+         </div>
+      </div>
+   </article>
+</main>
+<!--/MAIN-->
+
+@@include('_javascript.html')
+
+</body>
+
+</html>

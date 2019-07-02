@@ -25,8 +25,8 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	<!--/favicons-->
 </head>
 <body>
@@ -150,6 +150,9 @@ $request -> execute(array(
 <h2>Обновление строки</h2>
 <pre><code>$request = $db -> prepare('UPDATE table_name SET column_name_1=?, column_name_2=? WHERE column_name=?');
 $request -> execute(array('column_value_1', 'column_value_2', 'column_value'));</code></pre>
+<h2>Удаление всех данных из таблицы</h2>
+<pre><code>$erase_table = $db -> prepare('TRUNCATE TABLE table_name');
+$erase_table -> execute();</code></pre>
          </div>
       </div>
    </article>
