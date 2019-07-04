@@ -61,15 +61,18 @@
                            </li>
                         </ul>
                      </li>
-                     <!-- <li class="menu__item menu__item_has-children">
+                     <li class="menu__item menu__item_has-children">
                         <span class="menu__a">Практикум</span>
                         <button class="menu__arr"></button>
                         <ul class="sub-menu menu__sub-menu">
                            <li class="sub-menu__item">
-                              <a href="/layout" class="sub-menu__a">HTML - верстка</a>
+                              <a href="/js-api" class="sub-menu__a">JavaScript API</a>
                            </li>
+                           <!-- <li class="sub-menu__item">
+                              <a href="/layout" class="sub-menu__a">HTML - верстка</a>
+                           </li> -->
                         </ul>
-                     </li> -->
+                     </li>
                   </ul>
                   <!--/Menu-->
                </nav>
